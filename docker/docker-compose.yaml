@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  php-apache:
+    container_name: php-apache
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+      - ../php/:/var/www/html/php/
+    ports:
+      - 8000:80
+    depends_on:
+      - database
+
+  database:
+    container_name: database
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password123
+      MYSQL_DATABASE: Climbers_Soul_Caiarosio
+      MYSQL_USER: user123
+      MYSQL_PASSWORD: password123
+    ports:
+      - 9906:3306
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    environment:
+      PMA_HOST: database
+    ports:
+      - 8080:80
+    depends_on:
+      - database
