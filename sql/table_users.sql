@@ -2,10 +2,10 @@ DROP TABLE IF EXISTS `users`;
 
 -- Create table
 CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `firstname` varchar(255) CHARACTER SET utf8 NOT NULL,
-  `lastname` varchar(255) CHARACTER SET utf8 NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int NOT NULL,
+  `firstname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `lastname` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- Add indexes
 ALTER TABLE `users`
@@ -13,4 +13,4 @@ ALTER TABLE `users`
 
 -- Add autoincrement
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;

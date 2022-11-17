@@ -2,12 +2,12 @@ DROP TABLE IF EXISTS `openings`;
 
 -- Create table
 CREATE TABLE `openings` (
-  `id` int(11) NOT NULL,
-  `date` varchar(10) CHARACTER SET utf8 NOT NULL,
-  `from` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `to` varchar(5) CHARACTER SET utf8 NOT NULL,
-  `special` varchar(255) CHARACTER SET utf8 DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int NOT NULL,
+  `date` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `from` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `to` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `special` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- Add indexes
 ALTER TABLE `openings`
@@ -15,4 +15,4 @@ ALTER TABLE `openings`
 
 -- Add autoincrement
 ALTER TABLE `openings`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;

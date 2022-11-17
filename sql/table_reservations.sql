@@ -2,10 +2,10 @@ DROP TABLE IF EXISTS `reservations`;
 
 -- Create table
 CREATE TABLE `reservations` (
-  `id` int(11) NOT NULL,
-  `openingId` int(11) NOT NULL,
-  `userId` int(11) NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `id` int NOT NULL,
+  `openingId` int NOT NULL,
+  `userId` int NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
 
 -- Add indexes
 ALTER TABLE `reservations`
@@ -13,4 +13,4 @@ ALTER TABLE `reservations`
 
 -- Add autoincrement
 ALTER TABLE `reservations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT;
