@@ -16,7 +16,6 @@ services:
   database:
     container_name: database
     image: mysql
-    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: password123
       MYSQL_DATABASE: Climbers_Soul_Caiarosio
@@ -28,7 +27,6 @@ services:
   phpmyadmin:
     container_name: phpmyadmin
     image: phpmyadmin/phpmyadmin
-    restart: always
     environment:
       PMA_HOST: database
     ports:
