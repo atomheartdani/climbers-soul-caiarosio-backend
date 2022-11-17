@@ -12,21 +12,23 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$stmt = $user->getAllById($_GET['id']);
-$num = $stmt->rowCount();
-
 $ret = array();
-if ($num > 0) {
-  while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    extract($row);
-    $user_item = array(
-      'id' => $id,
-      'username' => $username,
-      'firstname' => $firstname,
-      'lastname' => $lastname,
-      'email' => $email
-    );
-    array_push($ret, $user_item);
+if(isset($_GET['id'])) {
+  $stmt = $user->getAllById($_GET['id']);
+  $num = $stmt->rowCount();
+  
+  if ($num > 0) {
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+      extract($row);
+      $user_item = array(
+        'id' => $id,
+        'username' => $username,
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'email' => $email
+      );
+      array_push($ret, $user_item);
+    }
   }
 }
 echo json_encode($ret);
