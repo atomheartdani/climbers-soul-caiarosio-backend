@@ -1,6 +1,6 @@
 <?php
-$hn = 'localhost';
-$db = 'database_name';
-$un = 'username';
-$pw = 'password';
+$hn = 'database';
+$db = 'Climbers_Soul_Caiarosio';
+$un = 'user123';
+$pw = 'password123';
 ?>
