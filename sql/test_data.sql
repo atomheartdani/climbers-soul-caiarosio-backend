@@ -66,16 +66,16 @@ INSERT INTO `rules` (`id`, `order`, `content`, `parentId`) VALUES
 (26, 8, 'Nell’area con corda il “Praticante” che assicura deve posizionarsi alla base del muro e prestare la massima attenzione durante l’arrampicata del proprio compagno. Ai fini della sicurezza, sarebbe opportuno che chi assicura non abbia un peso eccessivamente inferiore a chi sta salendo', 12);
 
 
-INSERT INTO `users` (`id`, `firstname`, `lastname`) VALUES
-(1, 'Bilbo', 'Baggins'),
-(2, 'Frodo', 'Baggins'),
-(3, 'Merry', 'Brandybuck'),
-(4, 'Aragorn', ''),
-(5, 'Galadriel', ''),
-(6, 'Gandalf', ''),
-(7, 'Gimli', ''),
-(8, 'Legolas', ''),
-(9, 'Saruman', ''),
-(10, 'Sauron', ''),
-(11, 'Samwise', 'Gamgee'),
-(12, 'Pippin Took', '');
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`) VALUES
+(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org'),
+(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org'),
+(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org'),
+(4, 'aragorn', 'Aragorn', '', 'aragorn@middleearth.org'),
+(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org'),
+(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org'),
+(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org'),
+(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org'),
+(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org'),
+(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org'),
+(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org'),
+(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org');

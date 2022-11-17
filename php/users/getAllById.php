@@ -21,8 +21,10 @@ if ($num > 0) {
     extract($row);
     $user_item = array(
       'id' => $id,
+      'username' => $username,
       'firstname' => $firstname,
-      'lastname' => $lastname
+      'lastname' => $lastname,
+      'email' => $email
     );
     array_push($ret, $user_item);
   }

@@ -5,8 +5,10 @@ class User
 
 	// fields
 	public $id;
+	public $username;
 	public $firstname;
 	public $lastname;
+	public $email;
 
 	public function __construct($db)
 	{
