@@ -9,6 +9,7 @@ class User
 	public $firstname;
 	public $lastname;
 	public $email;
+	public $isAdmin;
 
 	public function __construct($db)
 	{

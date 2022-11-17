@@ -25,7 +25,8 @@ if(isset($_GET['id'])) {
         'username' => $username,
         'firstname' => $firstname,
         'lastname' => $lastname,
-        'email' => $email
+        'email' => $email,
+        'isAdmin' => $isAdmin
       );
       array_push($ret, $user_item);
     }
