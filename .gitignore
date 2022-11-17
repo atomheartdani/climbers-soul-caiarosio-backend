@@ -61,3 +61,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# Sensitive Files
+/php/config/include/login.php
