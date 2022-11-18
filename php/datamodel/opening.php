@@ -15,9 +15,13 @@ class Opening
 		$this->conn = $db;
 	}
 
-	function getAll()
+	function getNext($loadAll)
 	{
-		$query = "SELECT o.* FROM openings o";
+		if($loadAll === TRUE) {
+			$query = "SELECT o.* FROM openings o WHERE STR_TO_DATE(o.date, '%Y-%m-%d') >= CURDATE()";
+		} else {
+			$query = "SELECT o.* FROM openings o WHERE STR_TO_DATE(o.date, '%Y-%m-%d') >= CURDATE() LIMIT 50";
+		}
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;

@@ -14,7 +14,7 @@ $db = $database->getConnection();
 $opening = new Opening($db);
 $reservation = new Reservation($db);
 
-$stmt = $opening->getAll();
+$stmt = $opening->getNext($_GET['loadAll']);
 $num = $stmt->rowCount();
 
 $ret = array();
