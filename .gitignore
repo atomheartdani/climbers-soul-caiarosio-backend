@@ -64,3 +64,8 @@ Thumbs.db
 
 # Sensitive Files
 /php/config/include/login.php
+
+# PHP dependencies
+/php/vendor
+/php/composer.json
+/php/composer.lock
