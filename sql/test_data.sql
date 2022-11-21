@@ -67,15 +67,15 @@ INSERT INTO `rules` (`id`, `order`, `content`, `parentId`) VALUES
 
 
 INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmin`) VALUES
-(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 1),
-(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 0),
-(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 0),
-(4, 'aragorn', 'Aragorn', '', 'aragorn@middleearth.org', 0),
-(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 0),
-(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 0),
-(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 0),
-(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 0),
-(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 0),
-(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 0),
-(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 0),
-(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 0);
+(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 1, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(4, 'aragorn', 'Aragorn', '', 'aragorn@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6');

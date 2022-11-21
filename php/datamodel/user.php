@@ -25,5 +25,14 @@ class User
 		$stmt->execute($ids);
 		return $stmt;
 	}
+
+	function login($username)
+	{
+		$query = "SELECT u.* FROM users u WHERE u.username = :username LIMIT 1";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(":username", $username);
+		$stmt->execute();
+		return $stmt;
+	}
 }
 ?>
