@@ -7,6 +7,7 @@ header('Content-Type: application/json; charset=UTF-8');
 include_once "../config/database.php";
 include_once '../datamodel/user.php';
 require "../vendor/autoload.php";
+require "../config/include/config.php";
 
 use \Firebase\JWT\JWT;
 
@@ -39,7 +40,6 @@ if($num > 0) {
   $savedPassword = $row["password"];
 
   if(password_verify($password, $savedPassword)) {
-    $secret_key = "YOUR_SECRET_KEY"; // TODO load from env
     $issuer_claim = "climbers-soul-caiarosio-backend";
     $audience_claim = "climbers-soul-caiarosio";
     $issuedAt_claim = new DateTimeImmutable();
@@ -63,7 +63,7 @@ if($num > 0) {
 
     http_response_code(200);
 
-    $jwt = JWT::encode($token, $secret_key, "HS256");
+    $jwt = JWT::encode($token, $jwt_key, "HS256");
     echo json_encode(
       array(
         "message" => "Login effettuato",
