@@ -63,7 +63,7 @@ testem.log
 Thumbs.db
 
 # Sensitive Files
-/php/config/include/login.php
+/php/config/include/config.php
 
 # PHP dependencies
 /php/vendor
