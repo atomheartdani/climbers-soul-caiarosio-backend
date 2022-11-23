@@ -23,9 +23,7 @@ if (isset($postData) && !empty($postData)) {
   $username = $parsedData["username"];
   $password = $parsedData["password"];
 } else {
-  http_response_code(401);
-  echo json_encode(array("message" => "Login fallito", "detail" => "Username o password non validi"));
-  die;
+  loginFailed();
 }
 
 $database = new Database();
@@ -73,11 +71,15 @@ if($num > 0) {
       )
     );
   } else {
-      http_response_code(401);
-      echo json_encode(array("message" => "Login fallito", "detail" => "Username o password non validi"));
+    loginFailed();
   }
 } else {
+  loginFailed();
+}
+
+function loginFailed() {
   http_response_code(401);
   echo json_encode(array("message" => "Login fallito", "detail" => "Username o password non validi"));
+  die();
 }
 ?>
