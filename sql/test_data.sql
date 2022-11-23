@@ -9,7 +9,47 @@ INSERT INTO `openings` (`id`, `date`, `from`, `to`, `special`) VALUES
 (8, '2022-12-01', '19:00', '21:00', NULL),
 (9, '2022-12-03', '09:00', '12:00', NULL),
 (10, '2022-12-06', '19:00', '21:00', NULL),
-(11, '2022-12-10', '09:00', '12:00', NULL);
+(11, '2022-12-10', '09:00', '12:00', NULL),
+(12, '2022-12-13', '19:00', '21:00', NULL),
+(13, '2022-12-15', '19:00', '21:00', NULL),
+(14, '2022-12-17', '09:00', '12:00', NULL),
+(15, '2022-12-20', '19:00', '21:00', NULL),
+(16, '2022-12-22', '19:00', '21:00', NULL),
+(17, '2023-01-10', '19:00', '21:00', NULL),
+(18, '2023-01-12', '19:00', '21:00', NULL),
+(19, '2023-01-14', '09:00', '12:00', NULL),
+(20, '2023-01-17', '19:00', '21:00', NULL),
+(21, '2023-01-19', '19:00', '21:00', NULL),
+(22, '2023-01-21', '09:00', '12:00', 'Giochi di arrampicata'),
+(23, '2023-01-24', '19:00', '21:00', NULL),
+(24, '2023-01-26', '19:00', '21:00', NULL),
+(25, '2023-01-28', '09:00', '12:00', 'Giochi di arrampicata'),
+(26, '2023-01-31', '19:00', '21:00', NULL),
+(27, '2023-02-02', '19:00', '21:00', NULL),
+(28, '2023-02-04', '09:00', '12:00', 'Giochi di arrampicata'),
+(29, '2023-02-07', '19:00', '21:00', NULL),
+(30, '2023-02-09', '19:00', '21:00', NULL),
+(31, '2023-02-11', '09:00', '12:00', 'Giochi di arrampicata'),
+(32, '2023-02-14', '19:00', '21:00', NULL),
+(33, '2023-02-16', '19:00', '21:00', NULL),
+(34, '2023-02-18', '09:00', '12:00', 'Giochi di arrampicata'),
+(35, '2023-02-21', '19:00', '21:00', NULL),
+(36, '2023-02-23', '19:00', '21:00', NULL),
+(37, '2023-02-25', '09:00', '12:00', NULL),
+(38, '2023-02-28', '19:00', '21:00', NULL),
+(39, '2023-03-02', '19:00', '21:00', NULL),
+(40, '2023-03-04', '09:00', '12:00', NULL),
+(41, '2023-03-07', '19:00', '21:00', NULL),
+(42, '2023-03-09', '19:00', '21:00', NULL),
+(43, '2023-03-11', '09:00', '12:00', NULL),
+(44, '2023-03-14', '19:00', '21:00', NULL),
+(45, '2023-03-16', '19:00', '21:00', NULL),
+(46, '2023-03-18', '09:00', '12:00', NULL),
+(47, '2023-03-21', '19:00', '21:00', NULL),
+(48, '2023-03-23', '19:00', '21:00', NULL),
+(49, '2023-03-25', '09:00', '12:00', NULL),
+(50, '2023-03-28', '19:00', '21:00', NULL),
+(51, '2023-03-30', '19:00', '21:00', NULL);
 
 
 INSERT INTO `reservations` (`id`, `openingId`, `userId`) VALUES
@@ -66,7 +106,7 @@ INSERT INTO `rules` (`id`, `order`, `content`, `parentId`) VALUES
 (26, 8, 'Nell’area con corda il “Praticante” che assicura deve posizionarsi alla base del muro e prestare la massima attenzione durante l’arrampicata del proprio compagno. Ai fini della sicurezza, sarebbe opportuno che chi assicura non abbia un peso eccessivamente inferiore a chi sta salendo', 12);
 
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmin`) VALUES
+INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmin`, `password`) VALUES
 (1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 1, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
