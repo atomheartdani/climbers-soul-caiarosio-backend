@@ -26,5 +26,26 @@ class Opening
 		$stmt->execute();
 		return $stmt;
 	}
+
+	function insert($date, $from, $to, $special) {
+		$query = "INSERT INTO openings (`date`, `from`, `to`, `special`) VALUES (:date, :from, :to, :special)";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(":date", $date);
+		$stmt->bindParam(":from", $from);
+		$stmt->bindParam(":to", $to);
+		$stmt->bindParam(":special", $special);
+		$stmt->execute();
+	}
+
+	function update($id, $date, $from, $to, $special) {
+		$query = "UPDATE openings SET `date`=:date, `from`=:from, `to`=:to, `special`=:special WHERE `id`=:id";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(":id", $id);
+		$stmt->bindParam(":date", $date);
+		$stmt->bindParam(":from", $from);
+		$stmt->bindParam(":to", $to);
+		$stmt->bindParam(":special", $special);
+		$stmt->execute();
+	}
 }
 ?>
