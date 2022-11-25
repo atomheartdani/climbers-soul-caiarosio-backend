@@ -13,6 +13,14 @@ class Reservation
 		$this->conn = $db;
 	}
 
+	function delete($openingId, $userId) {
+		$query = "DELETE FROM reservations WHERE `openingId` = :openingId AND `userId` = :userId";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(":openingId", $openingId);
+		$stmt->bindParam(":userId", $userId);
+		$stmt->execute();
+	}
+
 	function getAll()
 	{
 		$query = "SELECT r.* FROM reservations r";
