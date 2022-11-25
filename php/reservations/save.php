@@ -8,12 +8,7 @@ require '../config/database.php';
 require '../config/authorization.php';
 require '../datamodel/reservation.php';
 
-// For now, always return 200 OK per preflight request
-if ( "OPTIONS" === $_SERVER['REQUEST_METHOD'] ) {
-  http_response_code(200);
-  die;
-}
-
+managePreflight();
 checkAuthorization();
 
 $postData = file_get_contents("php://input");

@@ -5,17 +5,14 @@ header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, X-Requested-
 header('Content-Type: application/json; charset=UTF-8');
 
 include_once "../config/database.php";
+require '../config/authorization.php';
 include_once '../datamodel/user.php';
 require "../vendor/autoload.php";
 require "../config/include/config.php";
 
 use \Firebase\JWT\JWT;
 
-// For now, always return 200 OK per preflight request
-if ( "OPTIONS" === $_SERVER['REQUEST_METHOD'] ) {
-  http_response_code(200);
-  die;
-}
+managePreflight();
 
 $postData = file_get_contents("php://input");
 

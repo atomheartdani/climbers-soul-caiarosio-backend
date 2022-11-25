@@ -2,6 +2,14 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
+function managePreflight() {
+  // For now, always return 200 OK per preflight request
+  if ( 'OPTIONS' === $_SERVER['REQUEST_METHOD'] ) {
+    http_response_code(200);
+    die;
+  }
+}
+
 function checkAuthorization() {
   require 'include/config.php';
   require '../vendor/autoload.php';
