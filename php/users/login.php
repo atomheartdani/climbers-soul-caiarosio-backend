@@ -5,11 +5,11 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, X-Requested-With, Authorization');
 header('Content-Type: application/json; charset=UTF-8');
 
-include_once "../config/database.php";
 require '../config/authorization.php';
-include_once '../datamodel/user.php';
-require "../vendor/autoload.php";
-require "../config/include/config.php";
+require '../config/database.php';
+require '../config/include/config.php';
+require '../datamodel/user.php';
+require '../vendor/autoload.php';
 
 use \Firebase\JWT\JWT;
 

@@ -5,8 +5,8 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, X-Requested-With, Authorization');
 header('Content-Type: application/json; charset=UTF-8');
 
-require '../config/database.php';
 require '../config/authorization.php';
+require '../config/database.php';
 require '../datamodel/reservation.php';
 
 managePreflight();

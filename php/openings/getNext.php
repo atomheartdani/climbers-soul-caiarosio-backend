@@ -5,9 +5,9 @@ header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, X-Requested-With, Authorization');
 header('Content-Type: application/json; charset=UTF-8');
 
-include_once '../config/database.php';
-include_once '../datamodel/opening.php';
-include_once '../datamodel/reservation.php';
+require '../config/database.php';
+require '../datamodel/opening.php';
+require '../datamodel/reservation.php';
 
 $database = new Database();
 $db = $database->getConnection();

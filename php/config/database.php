@@ -6,7 +6,7 @@ class Database
 
     public function getConnection()
     {
-        require "include/config.php";
+        require 'include/config.php';
 
         $this->conn = null;
         try {
