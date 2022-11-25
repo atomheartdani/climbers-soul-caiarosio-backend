@@ -14,10 +14,10 @@ $db = $database->getConnection();
 $user = new User($db);
 
 $ret = array();
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
   $stmt = $user->getAllById($_GET['id']);
   $num = $stmt->rowCount();
-  
+
   if ($num > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
       extract($row);

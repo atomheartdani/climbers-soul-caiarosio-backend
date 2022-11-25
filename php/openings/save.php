@@ -12,15 +12,15 @@ require '../datamodel/opening.php';
 managePreflight();
 checkAuthorization();
 
-$postData = file_get_contents("php://input");
+$postData = file_get_contents('php://input');
 
 if (isset($postData) && !empty($postData)) {
   $parsedData = json_decode($postData, true);
-  $id = $parsedData["id"];
-  $date = $parsedData["date"];
-  $from = $parsedData["from"];
-  $to = $parsedData["to"];
-  $special = $parsedData["special"];
+  $id = $parsedData['id'];
+  $date = $parsedData['date'];
+  $from = $parsedData['from'];
+  $to = $parsedData['to'];
+  $special = $parsedData['special'];
 } else {
   http_response_code(400);
   die;

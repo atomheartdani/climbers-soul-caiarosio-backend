@@ -15,12 +15,12 @@ use \Firebase\JWT\JWT;
 
 managePreflight();
 
-$postData = file_get_contents("php://input");
+$postData = file_get_contents('php://input');
 
 if (isset($postData) && !empty($postData)) {
   $parsedData = json_decode($postData, true);
-  $username = $parsedData["username"];
-  $password = $parsedData["password"];
+  $username = $parsedData['username'];
+  $password = $parsedData['password'];
 } else {
   loginFailed();
 }
@@ -35,37 +35,37 @@ $num = $stmt->rowCount();
 
 if($num > 0) {
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  $savedPassword = $row["password"];
+  $savedPassword = $row['password'];
 
   if(password_verify($password, $savedPassword)) {
-    $issuer_claim = "climbers-soul-caiarosio-backend";
-    $audience_claim = "climbers-soul-caiarosio";
+    $issuer_claim = 'climbers-soul-caiarosio-backend';
+    $audience_claim = 'climbers-soul-caiarosio';
     $issuedAt_claim = new DateTimeImmutable();
-    $expire_claim = $issuedAt_claim->modify("+10 minutes");
+    $expire_claim = $issuedAt_claim->modify('+10 minutes');
     extract($row);
     $token = array(
-      "iss" => $issuer_claim,
-      "aud" => $audience_claim,
-      "iat" => $issuedAt_claim->getTimestamp(),
-      "nbf" => $issuedAt_claim->getTimestamp(),
-      "exp" => $expire_claim->getTimestamp(),
-      "data" => array(
-        "id" => $id,
-        "username" => $username,
-        "firstname" => $firstname,
-        "lastname" => $lastname,
-        "email" => $email,
-        "isAdmin" => $isAdmin
+      'iss' => $issuer_claim,
+      'aud' => $audience_claim,
+      'iat' => $issuedAt_claim->getTimestamp(),
+      'nbf' => $issuedAt_claim->getTimestamp(),
+      'exp' => $expire_claim->getTimestamp(),
+      'data' => array(
+        'id' => $id,
+        'username' => $username,
+        'firstname' => $firstname,
+        'lastname' => $lastname,
+        'email' => $email,
+        'isAdmin' => $isAdmin
       )
     );
 
     http_response_code(200);
 
-    $jwt = JWT::encode($token, $jwt_key, "HS256");
+    $jwt = JWT::encode($token, $jwt_key, 'HS256');
     echo json_encode(
       array(
-        "message" => "Login effettuato",
-        "access_token" => $jwt
+        'message' => 'Login effettuato',
+        'access_token' => $jwt
       )
     );
   } else {
@@ -77,6 +77,6 @@ if($num > 0) {
 
 function loginFailed() {
   http_response_code(401);
-  echo json_encode(array("message" => "Login fallito", "detail" => "Username o password non validi"));
+  echo json_encode(array('message' => 'Login fallito', 'detail' => 'Username o password non validi'));
   die();
 }

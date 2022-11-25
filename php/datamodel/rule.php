@@ -1,7 +1,6 @@
 <?php
 
-class Rule
-{
+class Rule {
 	private $conn;
 
 	// fields
@@ -10,14 +9,12 @@ class Rule
 	public $content;
 	public $parentId;
 
-	public function __construct($db)
-	{
+	public function __construct($db) {
 		$this->conn = $db;
 	}
 
-	function getAll()
-	{
-		$query = "SELECT r.* FROM rules r";
+	function getAll() {
+		$query = 'SELECT r.* FROM rules r';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;

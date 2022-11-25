@@ -12,12 +12,12 @@ require '../datamodel/reservation.php';
 managePreflight();
 checkAuthorization();
 
-$postData = file_get_contents("php://input");
+$postData = file_get_contents('php://input');
 
 if (isset($postData) && !empty($postData)) {
   $parsedData = json_decode($postData, true);
-  $openingId = $parsedData["openingId"];
-  $userId = $parsedData["userId"];
+  $openingId = $parsedData['openingId'];
+  $userId = $parsedData['userId'];
 } else {
   http_response_code(400);
   die;

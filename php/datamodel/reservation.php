@@ -1,7 +1,6 @@
 <?php
 
-class Reservation
-{
+class Reservation {
 	private $conn;
 
 	// fields
@@ -9,30 +8,27 @@ class Reservation
 	public $openingId;
 	public $userId;
 
-	public function __construct($db)
-	{
+	public function __construct($db) {
 		$this->conn = $db;
 	}
 
 	function delete($openingId, $userId) {
-		$query = "DELETE FROM reservations WHERE `openingId` = :openingId AND `userId` = :userId";
+		$query = 'DELETE FROM reservations WHERE `openingId` = :openingId AND `userId` = :userId';
 		$stmt = $this->conn->prepare($query);
-		$stmt->bindParam(":openingId", $openingId);
-		$stmt->bindParam(":userId", $userId);
+		$stmt->bindParam(':openingId', $openingId);
+		$stmt->bindParam(':userId', $userId);
 		$stmt->execute();
 	}
 
-	function getAll()
-	{
-		$query = "SELECT r.* FROM reservations r";
+	function getAll() {
+		$query = 'SELECT r.* FROM reservations r';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
 	}
 
-	function getAllByOpeningId($openingId)
-	{
-		$query = "SELECT r.* FROM reservations r WHERE r.openingId = :openingId";
+	function getAllByOpeningId($openingId) {
+		$query = 'SELECT r.* FROM reservations r WHERE r.openingId = :openingId';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->execute();
@@ -40,10 +36,10 @@ class Reservation
 	}
 
 	function insert($openingId, $userId) {
-		$query = "INSERT INTO reservations (`openingId`, `userId`) VALUES (:openingId, :userId)";
+		$query = 'INSERT INTO reservations (`openingId`, `userId`) VALUES (:openingId, :userId)';
 		$stmt = $this->conn->prepare($query);
-		$stmt->bindParam(":openingId", $openingId);
-		$stmt->bindParam(":userId", $userId);
+		$stmt->bindParam(':openingId', $openingId);
+		$stmt->bindParam(':userId', $userId);
 		$stmt->execute();
 	}
 }

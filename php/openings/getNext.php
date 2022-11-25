@@ -41,7 +41,7 @@ if ($num > 0) {
           'openingId' => $openingId,
           'userId' => $userId
         );
-	      if (!isset($reservation_item)) {
+        if (!isset($reservation_item)) {
           $reservation_item = array();
         }
         array_push($opening_item['reservations'], $reservation_item);
