@@ -29,5 +29,13 @@ class Reservation
 		$stmt->execute();
 		return $stmt;
 	}
+
+	function insert($openingId, $userId) {
+		$query = "INSERT INTO reservations (`openingId`, `userId`) VALUES (:openingId, :userId)";
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(":openingId", $openingId);
+		$stmt->bindParam(":userId", $userId);
+		$stmt->execute();
+	}
 }
 ?>
