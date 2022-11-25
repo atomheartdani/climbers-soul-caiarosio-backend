@@ -1,4 +1,5 @@
 <?php
+
 class User
 {
 	private $conn;
@@ -35,4 +36,3 @@ class User
 		return $stmt;
 	}
 }
-?>

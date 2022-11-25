@@ -1,4 +1,5 @@
 <?php
+
 class Database
 {
     public $conn;
@@ -17,4 +18,3 @@ class Database
         return $this->conn;
     }
 }
-?>

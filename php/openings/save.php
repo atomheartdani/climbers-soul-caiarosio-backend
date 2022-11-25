@@ -1,4 +1,5 @@
 <?php
+
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PATCH, PUT, DELETE, OPTIONS');
 header('Access-Control-Allow-Headers: Origin, Content-Type, Accept, X-Requested-With, Authorization');
@@ -36,4 +37,3 @@ if($id==0) {
   $stmt = $opening->update($id, $date, $from, $to, $special);
 }
 http_response_code(200);
-?>

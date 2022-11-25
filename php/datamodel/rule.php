@@ -1,4 +1,5 @@
 <?php
+
 class Rule
 {
 	private $conn;
@@ -22,4 +23,3 @@ class Rule
 		return $stmt;
 	}
 }
-?>

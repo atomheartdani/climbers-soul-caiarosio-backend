@@ -1,7 +1,7 @@
 <?php
+
 $hn = 'database';
 $db = 'Climbers_Soul_Caiarosio';
 $un = 'user123';
 $pw = 'password123';
 $jwt_key = 'mysecretjwtkey';
-?>

@@ -1,4 +1,5 @@
 <?php
+
 class Reservation
 {
 	private $conn;
@@ -46,4 +47,3 @@ class Reservation
 		$stmt->execute();
 	}
 }
-?>

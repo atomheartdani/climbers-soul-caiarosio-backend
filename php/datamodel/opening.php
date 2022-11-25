@@ -1,4 +1,5 @@
 <?php
+
 class Opening
 {
 	private $conn;
@@ -48,4 +49,3 @@ class Opening
 		$stmt->execute();
 	}
 }
-?>
