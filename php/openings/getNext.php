@@ -28,6 +28,7 @@ if ($num > 0) {
       'from' => $from,
       'to' => $to,
       'special' => $special,
+      'maxReservations' => $maxReservations,
       'reservations' => array()
     );
 

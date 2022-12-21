@@ -21,6 +21,7 @@ if (isset($postData) && !empty($postData)) {
   $from = $parsedData['from'];
   $to = $parsedData['to'];
   $special = $parsedData['special'];
+  $maxReservations = $parsedData['maxReservations'];
 } else {
   http_response_code(400);
   die;
@@ -32,8 +33,8 @@ $db = $database->getConnection();
 $opening = new Opening($db);
 
 if($id==0) {
-  $stmt = $opening->insert($date, $from, $to, $special);
+  $stmt = $opening->insert($date, $from, $to, $special, $maxReservations);
 } else {
-  $stmt = $opening->update($id, $date, $from, $to, $special);
+  $stmt = $opening->update($id, $date, $from, $to, $special, $maxReservations);
 }
 http_response_code(200);
