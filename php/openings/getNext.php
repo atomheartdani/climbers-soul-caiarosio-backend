@@ -40,7 +40,8 @@ if ($num > 0) {
         $reservation_item = array(
           'id' => $id,
           'openingId' => $openingId,
-          'userId' => $userId
+          'userId' => $userId,
+          'reservePartner' => $reservePartner
         );
         if (!isset($reservation_item)) {
           $reservation_item = array();

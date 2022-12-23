@@ -7,6 +7,7 @@ class Reservation {
 	public $id;
 	public $openingId;
 	public $userId;
+	public $reservePartner;
 
 	public function __construct($db) {
 		$this->conn = $db;
@@ -35,11 +36,12 @@ class Reservation {
 		return $stmt;
 	}
 
-	function insert($openingId, $userId) {
-		$query = 'INSERT INTO reservations (`openingId`, `userId`) VALUES (:openingId, :userId)';
+	function insert($openingId, $userId, $reservePartner) {
+		$query = 'INSERT INTO reservations (`openingId`, `userId`, `reservePartner`) VALUES (:openingId, :userId, :reservePartner)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->bindParam(':userId', $userId);
+		$stmt->bindParam(':reservePartner', $reservePartner);
 		$stmt->execute();
 	}
 }

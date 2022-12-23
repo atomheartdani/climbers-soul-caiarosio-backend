@@ -18,6 +18,7 @@ if (isset($postData) && !empty($postData)) {
   $parsedData = json_decode($postData, true);
   $openingId = $parsedData['openingId'];
   $userId = $parsedData['userId'];
+  $reservePartner = $parsedData['reservePartner'];
 } else {
   http_response_code(400);
   die;
@@ -28,5 +29,5 @@ $db = $database->getConnection();
 
 $reservation = new Reservation($db);
 
-$stmt = $reservation->insert($openingId, $userId);
+$stmt = $reservation->insert($openingId, $userId, $reservePartner);
 http_response_code(200);
