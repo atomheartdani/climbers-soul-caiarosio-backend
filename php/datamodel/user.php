@@ -10,6 +10,7 @@ class User {
 	public $lastname;
 	public $email;
 	public $isAdmin;
+	public $updatePassword;
 	public $password;
 
 	public function __construct($db) {
