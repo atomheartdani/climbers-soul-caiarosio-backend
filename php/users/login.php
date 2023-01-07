@@ -41,7 +41,7 @@ if($num > 0) {
     $issuer_claim = 'climbers-soul-caiarosio-backend';
     $audience_claim = 'climbers-soul-caiarosio';
     $issuedAt_claim = new DateTimeImmutable();
-    $expire_claim = $issuedAt_claim->modify('+10 minutes');
+    $expire_claim = $issuedAt_claim->modify('+30 minutes');
     extract($row);
     $token = array(
       'iss' => $issuer_claim,
