@@ -17,6 +17,13 @@ class User {
 		$this->conn = $db;
 	}
 
+	function getAll() {
+		$query = 'SELECT u.* FROM users u WHERE 1=1';
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		return $stmt;
+	}
+
 	function getAllById($ids) {
 		$in = str_repeat('?,', count($ids) - 1) . '?';
 		$query = 'SELECT u.* FROM users u WHERE u.id IN (' . $in . ')';
