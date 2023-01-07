@@ -55,8 +55,8 @@ if($num > 0) {
         'firstname' => $firstname,
         'lastname' => $lastname,
         'email' => $email,
-        'isAdmin' => $isAdmin,
-        'updatePassword' => $updatePassword
+        'isAdmin' => boolval($isAdmin),
+        'updatePassword' => boolval($updatePassword)
       )
     );
 
