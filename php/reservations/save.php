@@ -29,5 +29,5 @@ $db = $database->getConnection();
 
 $reservation = new Reservation($db);
 
-$stmt = $reservation->insert($openingId, $userId, $reservePartner);
+$reservation->insert($openingId, $userId, $reservePartner);
 http_response_code(200);

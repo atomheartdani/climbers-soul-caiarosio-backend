@@ -28,5 +28,5 @@ $db = $database->getConnection();
 
 $reservation = new Reservation($db);
 
-$stmt = $reservation->delete($openingId, $userId);
+$reservation->delete($openingId, $userId);
 http_response_code(200);

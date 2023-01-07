@@ -33,8 +33,8 @@ $db = $database->getConnection();
 $opening = new Opening($db);
 
 if($id==0) {
-  $stmt = $opening->insert($date, $from, $to, $special, $maxReservations);
+  $opening->insert($date, $from, $to, $special, $maxReservations);
 } else {
-  $stmt = $opening->update($id, $date, $from, $to, $special, $maxReservations);
+  $opening->update($id, $date, $from, $to, $special, $maxReservations);
 }
 http_response_code(200);
