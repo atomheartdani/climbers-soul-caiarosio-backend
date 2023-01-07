@@ -31,4 +31,12 @@ class User {
 		$stmt->execute();
 		return $stmt;
 	}
+
+	function updatePassword($id, $newPassword) {
+		$query = 'UPDATE users SET `password` = :password, `updatePassword` = 0 WHERE `id`=:id';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':id', $id);
+		$stmt->bindParam(':password', $newPassword);
+		$stmt->execute();
+	}
 }
