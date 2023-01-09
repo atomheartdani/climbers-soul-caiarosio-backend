@@ -115,6 +115,6 @@ INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmi
 (7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(10, 0, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
+(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6');
