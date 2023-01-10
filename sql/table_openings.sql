@@ -12,7 +12,8 @@ CREATE TABLE `openings` (
 
 -- Add indexes
 ALTER TABLE `openings`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `date` (`date`);
 
 -- Add autoincrement
 ALTER TABLE `openings`

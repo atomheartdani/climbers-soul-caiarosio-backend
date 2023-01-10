@@ -10,7 +10,8 @@ CREATE TABLE `rules` (
 
 -- Add indexes
 ALTER TABLE `rules`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `idOrder` (`id`,`order`);
 
 -- Add autoincrement
 ALTER TABLE `rules`

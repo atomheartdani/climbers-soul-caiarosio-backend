@@ -10,7 +10,13 @@ CREATE TABLE `reservations` (
 
 -- Add indexes
 ALTER TABLE `reservations`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `openingUser` (`openingId`,`userId`);
+
+-- Add constraints
+ALTER TABLE `reservations`
+  ADD CONSTRAINT `openingsFK` FOREIGN KEY (`openingId`) REFERENCES `openings` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `usersFK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 
 -- Add autoincrement
 ALTER TABLE `reservations`
