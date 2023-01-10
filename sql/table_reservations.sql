@@ -6,7 +6,7 @@ CREATE TABLE `reservations` (
   `openingId` int NOT NULL,
   `userId` int NOT NULL,
   `reservePartner` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
 ALTER TABLE `reservations`

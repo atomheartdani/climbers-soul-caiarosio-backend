@@ -10,7 +10,7 @@ CREATE TABLE `users` (
   `isAdmin` tinyint(1) NOT NULL DEFAULT '0',
   `updatePassword` tinyint(1) NOT NULL DEFAULT '0',
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
 ALTER TABLE `users`
