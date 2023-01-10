@@ -16,7 +16,7 @@ ALTER TABLE `reservations`
 -- Add constraints
 ALTER TABLE `reservations`
   ADD CONSTRAINT `openingsFK` FOREIGN KEY (`openingId`) REFERENCES `openings` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `usersFK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
+  ADD CONSTRAINT `usersFK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Add autoincrement
 ALTER TABLE `reservations`
