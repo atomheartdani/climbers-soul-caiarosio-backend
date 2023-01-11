@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `ClimbersSoulUsers`;
 
 -- Create table
-CREATE TABLE `users` (
+CREATE TABLE `ClimbersSoulUsers` (
   `id` int NOT NULL,
   `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `firstname` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -13,10 +13,10 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
-ALTER TABLE `users`
+ALTER TABLE `ClimbersSoulUsers`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 -- Add autoincrement
-ALTER TABLE `users`
+ALTER TABLE `ClimbersSoulUsers`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;

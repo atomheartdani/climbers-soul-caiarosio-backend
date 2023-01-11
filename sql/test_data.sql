@@ -1,4 +1,4 @@
-INSERT INTO `openings` (`id`, `date`, `from`, `to`, `special`, `maxReservations`) VALUES
+INSERT INTO `ClimbersSoulOpenings` (`id`, `date`, `from`, `to`, `special`, `maxReservations`) VALUES
 (1, '2022-11-15', '19:00', '21:00', NULL, 8),
 (2, '2022-11-17', '19:00', '21:00', NULL, 8),
 (3, '2022-11-19', '09:00', '12:00', NULL, 8),
@@ -52,7 +52,7 @@ INSERT INTO `openings` (`id`, `date`, `from`, `to`, `special`, `maxReservations`
 (51, '2023-03-30', '19:00', '21:00', NULL, 8);
 
 
-INSERT INTO `reservations` (`id`, `openingId`, `userId`, `reservePartner`) VALUES
+INSERT INTO `ClimbersSoulReservations` (`id`, `openingId`, `userId`, `reservePartner`) VALUES
 (1, 1, 1, 0),
 (2, 1, 2, 0),
 (3, 2, 1, 0),
@@ -75,7 +75,7 @@ INSERT INTO `reservations` (`id`, `openingId`, `userId`, `reservePartner`) VALUE
 (20, 10, 1, 0);
 
 
-INSERT INTO `rules` (`id`, `order`, `content`, `parentId`) VALUES
+INSERT INTO `ClimbersSoulRules` (`id`, `order`, `content`, `parentId`) VALUES
 (1, 1, 'Il presente regolamento disciplina l’utilizzo da parte del Praticante l’arrampicata sportiva (di seguito “Praticante”) della palestra di arrampicata sportiva (di seguito “Palestra”), di proprietà del Comune di Arosio e affidata alla gestione del CAI di Arosio (di seguito “CAI”), sita in Via Buonarroti - Arosio , presso il Palazzetto dello Sport', NULL),
 (2, 2, 'La pratica dell’arrampicata sportiva negli spazi del Palazzetto dello Sport è consentita dopo la presa visione e l’accettazione firmata del presente regolamento. Accettando il presente regolamento il Praticante dichiara di essere in buona salute e di non essere affetto da alcuna patologia incompatibile con la pratica dell’arrampicata sportiva', NULL),
 (3, 3, 'L’accesso alla Palestra è consentito, negli orari che verranno stabiliti, ai soci del Club Alpino Italiano, in regola con il tesseramento per l’anno in corso, previo il pagamento della quota d’uso deliberata dal Consiglio Direttivo della Sezione a titolo di rimborso spese', NULL),
@@ -103,7 +103,7 @@ INSERT INTO `rules` (`id`, `order`, `content`, `parentId`) VALUES
 (25, 8, 'Nell’area con corda il “Praticante” che assicura deve posizionarsi alla base del muro e prestare la massima attenzione durante l’arrampicata del proprio compagno. Ai fini della sicurezza, sarebbe opportuno che chi assicura non abbia un peso eccessivamente inferiore a chi sta salendo', 17);
 
 
-INSERT INTO `users` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmin`, `updatePassword`, `password`) VALUES
+INSERT INTO `ClimbersSoulUsers` (`id`, `username`, `firstname`, `lastname`, `email`, `isAdmin`, `updatePassword`, `password`) VALUES
 (1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 1, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
 (3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),

@@ -14,7 +14,7 @@ class Reservation {
 	}
 
 	function delete($openingId, $userId) {
-		$query = 'DELETE FROM reservations WHERE `openingId` = :openingId AND `userId` = :userId';
+		$query = 'DELETE FROM ClimbersSoulReservations WHERE `openingId` = :openingId AND `userId` = :userId';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->bindParam(':userId', $userId);
@@ -22,14 +22,14 @@ class Reservation {
 	}
 
 	function getAll() {
-		$query = 'SELECT r.* FROM reservations r';
+		$query = 'SELECT r.* FROM ClimbersSoulReservations r';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
 	}
 
 	function getAllByOpeningId($openingId) {
-		$query = 'SELECT r.* FROM reservations r WHERE r.openingId = :openingId';
+		$query = 'SELECT r.* FROM ClimbersSoulReservations r WHERE r.openingId = :openingId';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->execute();
@@ -37,7 +37,7 @@ class Reservation {
 	}
 
 	function insert($openingId, $userId, $reservePartner) {
-		$query = 'INSERT INTO reservations (`openingId`, `userId`, `reservePartner`) VALUES (:openingId, :userId, :reservePartner)';
+		$query = 'INSERT INTO ClimbersSoulReservations (`openingId`, `userId`, `reservePartner`) VALUES (:openingId, :userId, :reservePartner)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->bindParam(':userId', $userId);

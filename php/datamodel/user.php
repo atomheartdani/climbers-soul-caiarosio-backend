@@ -18,7 +18,7 @@ class User {
 	}
 
 	function getAll() {
-		$query = 'SELECT u.* FROM users u WHERE 1=1';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
@@ -26,14 +26,14 @@ class User {
 
 	function getAllById($ids) {
 		$in = str_repeat('?,', count($ids) - 1) . '?';
-		$query = 'SELECT u.* FROM users u WHERE u.id IN (' . $in . ')';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE u.id IN (' . $in . ')';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute($ids);
 		return $stmt;
 	}
 
 	function insert($username, $firstname, $lastname, $email, $isAdmin, $defaultPassword) {
-		$query = 'INSERT INTO users(`username`, `firstname`, `lastname`, `email`, `isAdmin`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :isAdmin, 1, :defaultPassword)';
+		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `isAdmin`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :isAdmin, 1, :defaultPassword)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -46,7 +46,7 @@ class User {
 	}
 
 	function update($id, $username, $firstname, $lastname, $email, $isAdmin, $updatePassword) {
-		$query = 'UPDATE users SET `username`=:username,`firstname`=:firstname,`lastname`=:lastname,`email`=:email,`isAdmin`=:isAdmin,`updatePassword`=:updatePassword WHERE `id`=:id';
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username,`firstname`=:firstname,`lastname`=:lastname,`email`=:email,`isAdmin`=:isAdmin,`updatePassword`=:updatePassword WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -61,14 +61,14 @@ class User {
 	}
 
 	function delete($id) {
-		$query = 'DELETE FROM users WHERE `id`=:id';
+		$query = 'DELETE FROM ClimbersSoulUsers WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 	}
 
 	function login($username) {
-		$query = 'SELECT u.* FROM users u WHERE u.username = :username LIMIT 1';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE u.username = :username LIMIT 1';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
@@ -76,7 +76,7 @@ class User {
 	}
 
 	function updatePassword($id, $newPassword) {
-		$query = 'UPDATE users SET `password` = :password, `updatePassword` = 0 WHERE `id`=:id';
+		$query = 'UPDATE ClimbersSoulUsers SET `password` = :password, `updatePassword` = 0 WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':id', $id);
 		$stmt->bindParam(':password', $newPassword);

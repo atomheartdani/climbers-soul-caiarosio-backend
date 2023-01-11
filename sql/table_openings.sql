@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS `openings`;
+DROP TABLE IF EXISTS `ClimbersSoulOpenings`;
 
 -- Create table
-CREATE TABLE `openings` (
+CREATE TABLE `ClimbersSoulOpenings` (
   `id` int NOT NULL,
   `date` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `from` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -11,10 +11,10 @@ CREATE TABLE `openings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
-ALTER TABLE `openings`
+ALTER TABLE `ClimbersSoulOpenings`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `date` (`date`);
 
 -- Add autoincrement
-ALTER TABLE `openings`
+ALTER TABLE `ClimbersSoulOpenings`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;

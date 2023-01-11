@@ -1,7 +1,7 @@
-DROP TABLE IF EXISTS `reservations`;
+DROP TABLE IF EXISTS `ClimbersSoulReservations`;
 
 -- Create table
-CREATE TABLE `reservations` (
+CREATE TABLE `ClimbersSoulReservations` (
   `id` int NOT NULL,
   `openingId` int NOT NULL,
   `userId` int NOT NULL,
@@ -9,15 +9,15 @@ CREATE TABLE `reservations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
-ALTER TABLE `reservations`
+ALTER TABLE `ClimbersSoulReservations`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `openingUser` (`openingId`,`userId`);
 
 -- Add constraints
-ALTER TABLE `reservations`
-  ADD CONSTRAINT `openingsFK` FOREIGN KEY (`openingId`) REFERENCES `openings` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `usersFK` FOREIGN KEY (`userId`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `ClimbersSoulReservations`
+  ADD CONSTRAINT `openingsFK` FOREIGN KEY (`openingId`) REFERENCES `ClimbersSoulOpenings` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  ADD CONSTRAINT `usersFK` FOREIGN KEY (`userId`) REFERENCES `ClimbersSoulUsers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 -- Add autoincrement
-ALTER TABLE `reservations`
+ALTER TABLE `ClimbersSoulReservations`
   MODIFY `id` int NOT NULL AUTO_INCREMENT;

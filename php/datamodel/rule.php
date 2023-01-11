@@ -14,7 +14,7 @@ class Rule {
 	}
 
 	function getAll() {
-		$query = 'SELECT r.* FROM rules r';
+		$query = 'SELECT r.* FROM ClimbersSoulRules r';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
