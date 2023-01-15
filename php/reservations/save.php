@@ -24,10 +24,16 @@ if (isset($postData) && !empty($postData)) {
   die;
 }
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$reservation = new Reservation($db);
+  $reservation = new Reservation($db);
 
-$reservation->insert($openingId, $userId, $reservePartner);
-http_response_code(200);
+  $reservation->insert($openingId, $userId, $reservePartner);
+  http_response_code(200);
+} catch (Exception $e) {
+  error_log('Error in reservations/save: ' . $e, 0);
+  http_response_code(500);
+  die;
+}

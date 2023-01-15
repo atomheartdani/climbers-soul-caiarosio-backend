@@ -23,10 +23,16 @@ if (isset($postData) && !empty($postData)) {
   die;
 }
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$reservation = new Reservation($db);
+  $reservation = new Reservation($db);
 
-$reservation->delete($openingId, $userId);
-http_response_code(200);
+  $reservation->delete($openingId, $userId);
+  http_response_code(200);
+} catch (Exception $e) {
+  error_log('Error in reservations/delete: ' . $e, 0);
+  http_response_code(500);
+  die;
+}

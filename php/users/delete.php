@@ -12,13 +12,19 @@ require '../datamodel/user.php';
 managePreflight();
 checkAuthorization();
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$user = new User($db);
+  $user = new User($db);
 
-$ret = array();
-if (isset($_GET['id'])) {
-  $user->delete($_GET['id']);
+  $ret = array();
+  if (isset($_GET['id'])) {
+    $user->delete($_GET['id']);
+  }
+  http_response_code(200);
+} catch (Exception $e) {
+  error_log('Error in users/delete: ' . $e, 0);
+  http_response_code(500);
+  die;
 }
-http_response_code(200);

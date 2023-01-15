@@ -28,15 +28,21 @@ if (isset($postData) && !empty($postData)) {
   die;
 }
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$user = new User($db);
+  $user = new User($db);
 
-if($id==0) {
-  $defaultPassword = password_hash($username, PASSWORD_BCRYPT, ['cost' => 15]);
-  $user->insert($username, $firstname, $lastname, $email, $isAdmin, $defaultPassword);
-} else {
-  $user->update($id, $username, $firstname, $lastname, $email, $isAdmin, $updatePassword);
+  if($id==0) {
+    $defaultPassword = password_hash($username, PASSWORD_BCRYPT, ['cost' => 15]);
+    $user->insert($username, $firstname, $lastname, $email, $isAdmin, $defaultPassword);
+  } else {
+    $user->update($id, $username, $firstname, $lastname, $email, $isAdmin, $updatePassword);
+  }
+  http_response_code(200);
+} catch (Exception $e) {
+  error_log('Error in users/save: ' . $e, 0);
+  http_response_code(500);
+  die;
 }
-http_response_code(200);

@@ -27,14 +27,20 @@ if (isset($postData) && !empty($postData)) {
   die;
 }
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$opening = new Opening($db);
+  $opening = new Opening($db);
 
-if($id==0) {
-  $opening->insert($date, $from, $to, $special, $maxReservations);
-} else {
-  $opening->update($id, $date, $from, $to, $special, $maxReservations);
+  if($id==0) {
+    $opening->insert($date, $from, $to, $special, $maxReservations);
+  } else {
+    $opening->update($id, $date, $from, $to, $special, $maxReservations);
+  }
+  http_response_code(200);
+} catch (Exception $e) {
+  error_log('Error in openings/save: ' . $e, 0);
+  http_response_code(500);
+  die;
 }
-http_response_code(200);

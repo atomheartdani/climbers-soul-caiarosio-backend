@@ -23,27 +23,33 @@ if (isset($postData) && !empty($postData)) {
   updatePasswordFailed();
 }
 
-$database = new Database();
-$db = $database->getConnection();
+try {
+  $database = new Database();
+  $db = $database->getConnection();
 
-$user = new User($db);
+  $user = new User($db);
 
-$stmt = $user->login($username);
-$num = $stmt->rowCount();
+  $stmt = $user->login($username);
+  $num = $stmt->rowCount();
 
-if($num > 0) {
-  $row = $stmt->fetch(PDO::FETCH_ASSOC);
-  $savedPassword = $row['password'];
+  if($num > 0) {
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $savedPassword = $row['password'];
 
-  if(password_verify($oldPassword, $savedPassword) && strlen($newPassword) >= 16) {
-    $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 15]);
-    $user->updatePassword($row['id'], $newPasswordHash);
-    http_response_code(200);
+    if(password_verify($oldPassword, $savedPassword) && strlen($newPassword) >= 16) {
+      $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 15]);
+      $user->updatePassword($row['id'], $newPasswordHash);
+      http_response_code(200);
+    } else {
+      updatePasswordFailed();
+    }
   } else {
     updatePasswordFailed();
   }
-} else {
-  updatePasswordFailed();
+} catch (Exception $e) {
+  error_log('Error in users/updatePassword: ' . $e, 0);
+  http_response_code(500);
+  die;
 }
 
 function updatePasswordFailed() {
