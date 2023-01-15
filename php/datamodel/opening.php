@@ -17,9 +17,9 @@ class Opening {
 
 	function getNext($loadAll) {
 		if ($loadAll === TRUE) {
-			$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE STR_TO_DATE(o.date, \'%Y-%m-%d\') >= CURDATE()';
+			$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE STR_TO_DATE(o.date, \'%Y-%m-%d\') >= CURDATE() ORDER BY o.date';
 		} else {
-			$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE STR_TO_DATE(o.date, \'%Y-%m-%d\') >= CURDATE() LIMIT 30';
+			$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE STR_TO_DATE(o.date, \'%Y-%m-%d\') >= CURDATE() ORDER BY o.date LIMIT 30';
 		}
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();

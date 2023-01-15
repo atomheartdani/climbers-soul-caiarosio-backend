@@ -18,7 +18,7 @@ class User {
 	}
 
 	function getAll() {
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1 ORDER BY u.lastname, u.firstname';
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt;
