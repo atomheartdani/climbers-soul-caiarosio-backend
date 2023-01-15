@@ -41,7 +41,7 @@ if ($num > 0) {
           'id' => $id,
           'openingId' => $openingId,
           'userId' => $userId,
-          'reservePartner' => $reservePartner
+          'reservePartner' => boolval($reservePartner)
         );
         if (!isset($reservation_item)) {
           $reservation_item = array();

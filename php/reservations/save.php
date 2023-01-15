@@ -18,7 +18,7 @@ if (isset($postData) && !empty($postData)) {
   $parsedData = json_decode($postData, true);
   $openingId = $parsedData['openingId'];
   $userId = $parsedData['userId'];
-  $reservePartner = $parsedData['reservePartner'];
+  $reservePartner = intval($parsedData['reservePartner']);
 } else {
   http_response_code(400);
   die;
