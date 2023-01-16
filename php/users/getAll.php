@@ -30,6 +30,7 @@ if ($num > 0) {
       'firstname' => $firstname,
       'lastname' => $lastname,
       'email' => $email,
+      'tosConsent' => boolval($tosConsent),
       'isAdmin' => boolval($isAdmin),
       'updatePassword' => boolval($updatePassword)
     );

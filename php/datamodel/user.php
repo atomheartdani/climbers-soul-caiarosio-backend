@@ -9,6 +9,7 @@ class User {
 	public $firstname;
 	public $lastname;
 	public $email;
+	public $tosConsent;
 	public $isAdmin;
 	public $updatePassword;
 	public $password;
@@ -32,26 +33,30 @@ class User {
 		return $stmt;
 	}
 
-	function insert($username, $firstname, $lastname, $email, $isAdmin, $defaultPassword) {
-		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `isAdmin`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :isAdmin, 1, :defaultPassword)';
+	function insert($username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $defaultPassword) {
+		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `tosConsent`, `isAdmin`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :tosConsent, :isAdmin, 1, :defaultPassword)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
+		$tosConsentInt = (int) $tosConsent;
+		$stmt->bindParam(':tosConsent', $tosConsentInt);
 		$isAdminInt = (int) $isAdmin;
 		$stmt->bindParam(':isAdmin', $isAdminInt);
 		$stmt->bindParam(':defaultPassword', $defaultPassword);
 		$stmt->execute();
 	}
 
-	function update($id, $username, $firstname, $lastname, $email, $isAdmin, $updatePassword) {
-		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username,`firstname`=:firstname,`lastname`=:lastname,`email`=:email,`isAdmin`=:isAdmin,`updatePassword`=:updatePassword WHERE `id`=:id';
+	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $updatePassword) {
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isAdmin`=:isAdmin, `updatePassword`=:updatePassword WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
+		$tosConsentInt = (int) $tosConsent;
+		$stmt->bindParam(':tosConsent', $tosConsentInt);
 		$isAdminInt = (int) $isAdmin;
 		$stmt->bindParam(':isAdmin', $isAdminInt);
 		$updatePasswordInt = (int) $updatePassword;
