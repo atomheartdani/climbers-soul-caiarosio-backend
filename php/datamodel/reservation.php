@@ -44,4 +44,12 @@ class Reservation {
 		$stmt->bindParam(':reservePartner', $reservePartner);
 		$stmt->execute();
 	}
+
+	function getNumberOfReservationsForOpening($openingId) {
+		$query = 'SELECT COUNT(*) + SUM(reservePartner) AS res FROM ClimbersSoulReservations WHERE openingId = :openingId GROUP BY openingId';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':openingId', $openingId);
+		$stmt->execute();
+		return $stmt;
+	}
 }

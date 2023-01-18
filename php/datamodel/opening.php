@@ -15,6 +15,14 @@ class Opening {
 		$this->conn = $db;
 	}
 
+	function getbyId($openingId) {
+		$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE o.id = :openingId';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':openingId', $openingId);
+		$stmt->execute();
+		return $stmt;
+	}
+
 	function getNext($loadAll) {
 		if ($loadAll === TRUE) {
 			$query = 'SELECT o.* FROM ClimbersSoulOpenings o WHERE STR_TO_DATE(o.date, \'%Y-%m-%d\') >= CURDATE() ORDER BY o.date';
