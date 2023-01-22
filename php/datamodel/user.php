@@ -33,6 +33,14 @@ class User {
 		return $stmt;
 	}
 
+	function getByUsername($username) {
+		$query = 'SELECT 1 FROM ClimbersSoulUsers u WHERE u.username = :username';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':username', $username);
+		$stmt->execute();
+		return $stmt;
+	}
+
 	function insert($username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $defaultPassword) {
 		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `tosConsent`, `isAdmin`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :tosConsent, :isAdmin, 1, :defaultPassword)';
 		$stmt = $this->conn->prepare($query);
