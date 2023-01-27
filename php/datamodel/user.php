@@ -35,7 +35,7 @@ class User {
 	}
 
 	function getByUsername($username) {
-		$query = 'SELECT 1 FROM ClimbersSoulUsers u WHERE u.username = :username';
+		$query = 'SELECT 1 FROM ClimbersSoulUsers u WHERE UPPER(u.username) = UPPER(:username)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
@@ -86,7 +86,7 @@ class User {
 	}
 
 	function login($username) {
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE u.username = :username LIMIT 1';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE UPPER(u.username) = UPPER(:username) LIMIT 1';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
