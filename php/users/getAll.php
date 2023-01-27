@@ -32,6 +32,7 @@ if ($num > 0) {
       'email' => $email,
       'tosConsent' => boolval($tosConsent),
       'isAdmin' => boolval($isAdmin),
+      'isCaiArosio' => boolval($isCaiArosio),
       'updatePassword' => boolval($updatePassword)
     );
     array_push($ret, $user_item);
