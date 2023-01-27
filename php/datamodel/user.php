@@ -19,9 +19,21 @@ class User {
 		$this->conn = $db;
 	}
 
-	function getAll() {
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1 ORDER BY u.lastname, u.firstname';
+	function count() {
+		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers';
 		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		return $stmt->fetch();
+	}
+
+	function getAll($pageIndex, $pageSize) {
+		$offset = $pageIndex * $pageSize;
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1 ORDER BY u.lastname, u.firstname LIMIT :offset, :pageSize';
+		$stmt = $this->conn->prepare($query);
+		$offsetInt = (int) $offset;
+		$stmt->bindParam(':offset', $offsetInt, PDO::PARAM_INT);
+		$pageSizeInt = (int) $pageSize;
+		$stmt->bindParam(':pageSize', $pageSizeInt, PDO::PARAM_INT);
 		$stmt->execute();
 		return $stmt;
 	}

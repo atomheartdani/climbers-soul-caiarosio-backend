@@ -17,11 +17,18 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$ret = array();
-$stmt = $user->getAll();
+$numberOfUsers = $user->count();
+error_log('numberOfUsers: ' . $numberOfUsers[0], 0);
+
+$ret = array(
+  'total' => intval($numberOfUsers[0]),
+  'content' => []
+);
+$stmt = $user->getAll($_GET['pageIndex'], $_GET['pageSize']);
 $num = $stmt->rowCount();
 
 if ($num > 0) {
+  $users = array();
   while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
     extract($row);
     $user_item = array(
@@ -35,7 +42,8 @@ if ($num > 0) {
       'isCaiArosio' => boolval($isCaiArosio),
       'updatePassword' => boolval($updatePassword)
     );
-    array_push($ret, $user_item);
+    array_push($users, $user_item);
   }
+  $ret['content'] = $users;
 }
 echo json_encode($ret);
