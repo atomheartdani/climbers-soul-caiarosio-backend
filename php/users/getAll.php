@@ -18,7 +18,6 @@ $db = $database->getConnection();
 $user = new User($db);
 
 $numberOfUsers = $user->count();
-error_log('numberOfUsers: ' . $numberOfUsers[0], 0);
 
 $ret = array(
   'total' => intval($numberOfUsers[0]),
@@ -38,9 +37,10 @@ if ($num > 0) {
       'lastname' => $lastname,
       'email' => $email,
       'tosConsent' => boolval($tosConsent),
-      'isAdmin' => boolval($isAdmin),
       'isCaiArosio' => boolval($isCaiArosio),
-      'updatePassword' => boolval($updatePassword)
+      'updatePassword' => boolval($updatePassword),
+      'canManageOpenings' => boolval($canManageOpenings),
+      'canManageUsers' => boolval($canManageUsers)
     );
     array_push($users, $user_item);
   }

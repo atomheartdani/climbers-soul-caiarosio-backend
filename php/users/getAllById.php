@@ -25,10 +25,7 @@ if (isset($_GET['id'])) {
         'id' => $id,
         'username' => $username,
         'firstname' => $firstname,
-        'lastname' => $lastname,
-        'email' => $email,
-        'isAdmin' => boolval($isAdmin),
-        'isCaiArosio' => boolval($isCaiArosio)
+        'lastname' => $lastname
       );
       array_push($ret, $user_item);
     }

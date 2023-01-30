@@ -10,10 +10,11 @@ class User {
 	public $lastname;
 	public $email;
 	public $tosConsent;
-	public $isAdmin;
 	public $isCaiArosio;
 	public $updatePassword;
 	public $password;
+	public $canManageOpenings;
+	public $canManageUsers;
 
 	public function __construct($db) {
 		$this->conn = $db;
@@ -54,8 +55,8 @@ class User {
 		return $stmt;
 	}
 
-	function insert($username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $isCaiArosio, $defaultPassword) {
-		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `tosConsent`, `isAdmin`, `isCaiArosio`, `updatePassword`, `password`) VALUES (:username, :firstname, :lastname, :email, :tosConsent, :isAdmin, :isCaiArosio, 1, :defaultPassword)';
+	function insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers) {
+		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `tosConsent`, `isCaiArosio`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`) VALUES (:username, :firstname, :lastname, :email, :tosConsent, :isCaiArosio, 1, :defaultPassword, :canManageOpenings, :canManageUsers)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -63,16 +64,18 @@ class User {
 		$stmt->bindParam(':email', $email);
 		$tosConsentInt = (int) $tosConsent;
 		$stmt->bindParam(':tosConsent', $tosConsentInt);
-		$isAdminInt = (int) $isAdmin;
-		$stmt->bindParam(':isAdmin', $isAdminInt);
 		$isCaiArosioInt = (int) $isCaiArosio;
-		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
+		$stmt->bindParam(':isCaiArosio', $isCaiArosioInt);
 		$stmt->bindParam(':defaultPassword', $defaultPassword);
+		$canManageOpeningsInt = (int) $canManageOpenings;
+		$stmt->bindParam(':canManageOpenings', $canManageOpeningsInt);
+		$canManageUsersInt = (int) $canManageUsers;
+		$stmt->bindParam(':canManageUsers', $canManageUsersInt);
 		$stmt->execute();
 	}
 
-	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $isCaiArosio, $updatePassword) {
-		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isAdmin`=:isAdmin, `isCaiArosio`=:isCaiArosio, `updatePassword`=:updatePassword WHERE `id`=:id';
+	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $updatePassword, $canManageOpenings, $canManageUsers) {
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `updatePassword`=:updatePassword, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -80,12 +83,14 @@ class User {
 		$stmt->bindParam(':email', $email);
 		$tosConsentInt = (int) $tosConsent;
 		$stmt->bindParam(':tosConsent', $tosConsentInt);
-		$isAdminInt = (int) $isAdmin;
-		$stmt->bindParam(':isAdmin', $isAdminInt);
 		$isCaiArosioInt = (int) $isCaiArosio;
-		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
+		$stmt->bindParam(':isCaiArosio', $isCaiArosioInt);
 		$updatePasswordInt = (int) $updatePassword;
 		$stmt->bindParam(':updatePassword', $updatePasswordInt);
+		$canManageOpeningsInt = (int) $canManageOpenings;
+		$stmt->bindParam(':canManageOpenings', $canManageOpeningsInt);
+		$canManageUsersInt = (int) $canManageUsers;
+		$stmt->bindParam(':canManageUsers', $canManageUsersInt);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 	}

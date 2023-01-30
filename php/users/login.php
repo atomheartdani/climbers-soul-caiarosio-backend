@@ -55,8 +55,9 @@ if($num > 0) {
         'firstname' => $firstname,
         'lastname' => $lastname,
         'email' => $email,
-        'isAdmin' => boolval($isAdmin),
-        'updatePassword' => boolval($updatePassword)
+        'updatePassword' => boolval($updatePassword),
+        'canManageOpenings' => boolval($canManageOpenings),
+        'canManageUsers' => boolval($canManageUsers)
       )
     );
 

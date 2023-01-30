@@ -22,9 +22,10 @@ if (isset($postData) && !empty($postData)) {
   $lastname = $parsedData['lastname'];
   $email = $parsedData['email'];
   $tosConsent = intval($parsedData['tosConsent']);
-  $isAdmin = intval($parsedData['isAdmin']);
   $isCaiArosio = intval($parsedData['isCaiArosio']);
   $updatePassword = intval($parsedData['updatePassword']);
+  $canManageOpenings = intval($parsedData['canManageOpenings']);
+  $canManageUsers = intval($parsedData['canManageUsers']);
 } else {
   http_response_code(400);
   die;
@@ -38,9 +39,9 @@ try {
 
   if($id==0) {
     $defaultPassword = password_hash($username, PASSWORD_BCRYPT, ['cost' => 15]);
-    $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $isCaiArosio, $defaultPassword);
+    $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers);
   } else {
-    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isAdmin, $isCaiArosio, $updatePassword);
+    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $updatePassword, $canManageOpenings, $canManageUsers);
   }
   http_response_code(200);
 } catch (Exception $e) {
