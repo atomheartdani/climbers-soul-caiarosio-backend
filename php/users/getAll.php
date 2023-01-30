@@ -17,13 +17,15 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$numberOfUsers = $user->count();
+$filter = filterToSql($_GET['filter']);
+
+$numberOfUsers = $user->count($filter);
 
 $ret = array(
   'total' => intval($numberOfUsers[0]),
   'content' => []
 );
-$stmt = $user->getAll($_GET['pageIndex'], $_GET['pageSize']);
+$stmt = $user->getAll($filter, $_GET['pageIndex'], $_GET['pageSize']);
 $num = $stmt->rowCount();
 
 if ($num > 0) {
@@ -47,3 +49,29 @@ if ($num > 0) {
   $ret['content'] = $users;
 }
 echo json_encode($ret);
+
+function filterToSql($filterJson) {
+  $filter = json_decode($filterJson);
+
+  $ret = '1=1';
+  if(property_exists($filter, 'username')) {
+    $ret = $ret . ' AND username LIKE \'%' . $filter->username . '%\'';
+  }
+  if(property_exists($filter, 'firstname')) {
+    $ret = $ret . ' AND firstname LIKE \'%' . $filter->firstname . '%\'';
+  }
+  if(property_exists($filter, 'lastname')) {
+    $ret = $ret . ' AND lastname LIKE \'%' . $filter->lastname . '%\'';
+  }
+  if(property_exists($filter, 'email')) {
+    $ret = $ret . ' AND email LIKE \'%' . $filter->email . '%\'';
+  }
+  if(property_exists($filter, 'canManageOpenings')) {
+    $ret = $ret . ' AND canManageOpenings = \'' . $filter->canManageOpenings . '\'';
+  }
+  if(property_exists($filter, 'canManageUsers')) {
+    $ret = $ret . ' AND canManageUsers = \'' . $filter->canManageUsers . '\'';
+  }
+
+  return $ret;
+}

@@ -20,16 +20,16 @@ class User {
 		$this->conn = $db;
 	}
 
-	function count() {
-		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers';
+	function count($filter) {
+		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers WHERE ' . $filter;
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->fetch();
 	}
 
-	function getAll($pageIndex, $pageSize) {
+	function getAll($filter, $pageIndex, $pageSize) {
 		$offset = $pageIndex * $pageSize;
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE 1=1 ORDER BY u.lastname, u.firstname LIMIT :offset, :pageSize';
+		$query = 'SELECT * FROM ClimbersSoulUsers WHERE ' . $filter . ' ORDER BY lastname, firstname LIMIT :offset, :pageSize';
 		$stmt = $this->conn->prepare($query);
 		$offsetInt = (int) $offset;
 		$stmt->bindParam(':offset', $offsetInt, PDO::PARAM_INT);
