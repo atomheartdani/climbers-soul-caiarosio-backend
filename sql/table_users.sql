@@ -12,7 +12,8 @@ CREATE TABLE `ClimbersSoulUsers` (
   `updatePassword` tinyint(1) NOT NULL DEFAULT '0',
   `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `canManageOpenings` tinyint(1) NOT NULL DEFAULT '0',
-  `canManageUsers` tinyint(1) NOT NULL DEFAULT '0'
+  `canManageUsers` tinyint(1) NOT NULL DEFAULT '0',
+  `deletedOn` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes

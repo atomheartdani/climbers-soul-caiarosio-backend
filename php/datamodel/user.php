@@ -15,13 +15,14 @@ class User {
 	public $password;
 	public $canManageOpenings;
 	public $canManageUsers;
+	public $deletedOn;
 
 	public function __construct($db) {
 		$this->conn = $db;
 	}
 
 	function count($filter) {
-		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers WHERE ' . $filter;
+		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers WHERE deletedOn IS NULL AND ' . $filter;
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->fetch();
@@ -29,7 +30,7 @@ class User {
 
 	function getAll($filter, $pageIndex, $pageSize) {
 		$offset = $pageIndex * $pageSize;
-		$query = 'SELECT * FROM ClimbersSoulUsers WHERE ' . $filter . ' ORDER BY lastname, firstname LIMIT :offset, :pageSize';
+		$query = 'SELECT * FROM ClimbersSoulUsers WHERE deletedOn IS NULL AND ' . $filter . ' ORDER BY lastname, firstname LIMIT :offset, :pageSize';
 		$stmt = $this->conn->prepare($query);
 		$offsetInt = (int) $offset;
 		$stmt->bindParam(':offset', $offsetInt, PDO::PARAM_INT);
@@ -96,14 +97,14 @@ class User {
 	}
 
 	function delete($id) {
-		$query = 'DELETE FROM ClimbersSoulUsers WHERE `id`=:id';
+		$query = 'UPDATE ClimbersSoulUsers SET `deletedOn`=SYSDATE() WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 	}
 
 	function login($username) {
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE UPPER(u.username) = UPPER(:username) LIMIT 1';
+		$query = 'SELECT * FROM ClimbersSoulUsers WHERE  deletedOn IS NULL AND UPPER(username) = UPPER(:username) LIMIT 1';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();
