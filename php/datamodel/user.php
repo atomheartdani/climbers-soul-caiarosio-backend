@@ -22,7 +22,7 @@ class User {
 	}
 
 	function count($filter) {
-		$query = 'SELECT COUNT(u.*) FROM ClimbersSoulUsers u WHERE u.deletedOn IS NULL AND ' . $filter;
+		$query = 'SELECT COUNT(*) FROM ClimbersSoulUsers u WHERE u.deletedOn IS NULL AND ' . $filter;
 		$stmt = $this->conn->prepare($query);
 		$stmt->execute();
 		return $stmt->fetch();
