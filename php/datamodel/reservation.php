@@ -46,7 +46,7 @@ class Reservation {
 	}
 
 	function getNumberOfReservationsForOpening($openingId) {
-		$query = 'SELECT IFNULL(COUNT(*) + SUM(reservePartner), 0) AS res FROM ClimbersSoulReservations WHERE openingId = :openingId GROUP BY openingId';
+		$query = 'SELECT IFNULL(COUNT(r.*) + SUM(r.reservePartner), 0) AS res FROM ClimbersSoulReservations r WHERE r.openingId = :openingId GROUP BY r.openingId';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':openingId', $openingId);
 		$stmt->execute();
