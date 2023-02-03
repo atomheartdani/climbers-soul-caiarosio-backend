@@ -51,10 +51,9 @@ function getNumberOfReservationsForOpening($reservation, $openingId) {
   $stmt = $reservation->getNumberOfReservationsForOpening($openingId);
   $num = $stmt->rowCount();
   
-  if ($num > 0) {
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    extract($row);
-    return $res;
+  if ($num >= 0) {
+    $ret = $stmt->fetchColumn();
+    return $ret;
   } else {
     throw new Exception('Couldn\'t calculate number of reserved spots');
   }
