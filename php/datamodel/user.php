@@ -63,15 +63,11 @@ class User {
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
-		$tosConsentInt = (int) $tosConsent;
-		$stmt->bindParam(':tosConsent', $tosConsentInt);
-		$isCaiArosioInt = (int) $isCaiArosio;
-		$stmt->bindParam(':isCaiArosio', $isCaiArosioInt);
+		$stmt->bindParam(':tosConsent', $tosConsent);
+		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
 		$stmt->bindParam(':defaultPassword', $defaultPassword);
-		$canManageOpeningsInt = (int) $canManageOpenings;
-		$stmt->bindParam(':canManageOpenings', $canManageOpeningsInt);
-		$canManageUsersInt = (int) $canManageUsers;
-		$stmt->bindParam(':canManageUsers', $canManageUsersInt);
+		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
+		$stmt->bindParam(':canManageUsers', $canManageUsers);
 		$stmt->execute();
 	}
 
@@ -82,16 +78,11 @@ class User {
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
-		$tosConsentInt = (int) $tosConsent;
-		$stmt->bindParam(':tosConsent', $tosConsentInt);
-		$isCaiArosioInt = (int) $isCaiArosio;
-		$stmt->bindParam(':isCaiArosio', $isCaiArosioInt);
-		$updatePasswordInt = (int) $updatePassword;
-		$stmt->bindParam(':updatePassword', $updatePasswordInt);
-		$canManageOpeningsInt = (int) $canManageOpenings;
-		$stmt->bindParam(':canManageOpenings', $canManageOpeningsInt);
-		$canManageUsersInt = (int) $canManageUsers;
-		$stmt->bindParam(':canManageUsers', $canManageUsersInt);
+		$stmt->bindParam(':tosConsent', $tosConsent);
+		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
+		$stmt->bindParam(':updatePassword', $updatePassword);
+		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
+		$stmt->bindParam(':canManageUsers', $canManageUsers);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 	}
