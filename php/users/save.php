@@ -37,7 +37,7 @@ try {
 
   $user = new User($db);
 
-  if($id==0) {
+  if ($id == 0) {
     $defaultPassword = password_hash($username, PASSWORD_BCRYPT, ['cost' => 15]);
     $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers);
   } else {

@@ -32,11 +32,11 @@ try {
   $stmt = $user->login($username);
   $num = $stmt->rowCount();
 
-  if($num > 0) {
+  if ($num > 0) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     $savedPassword = $row['password'];
 
-    if(password_verify($oldPassword, $savedPassword) && strlen($newPassword) >= 16) {
+    if (password_verify($oldPassword, $savedPassword) && strlen($newPassword) >= 16) {
       $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 15]);
       $user->updatePassword($row['id'], $newPasswordHash);
       http_response_code(200);

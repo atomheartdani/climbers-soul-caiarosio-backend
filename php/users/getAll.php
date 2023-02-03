@@ -54,22 +54,22 @@ function filterToSql($filterJson) {
   $filter = json_decode($filterJson);
 
   $ret = '1=1';
-  if(property_exists($filter, 'username')) {
+  if (property_exists($filter, 'username')) {
     $ret = $ret . ' AND username LIKE \'%' . $filter->username . '%\'';
   }
-  if(property_exists($filter, 'firstname')) {
+  if (property_exists($filter, 'firstname')) {
     $ret = $ret . ' AND firstname LIKE \'%' . $filter->firstname . '%\'';
   }
-  if(property_exists($filter, 'lastname')) {
+  if (property_exists($filter, 'lastname')) {
     $ret = $ret . ' AND lastname LIKE \'%' . $filter->lastname . '%\'';
   }
-  if(property_exists($filter, 'email')) {
+  if (property_exists($filter, 'email')) {
     $ret = $ret . ' AND email LIKE \'%' . $filter->email . '%\'';
   }
-  if(property_exists($filter, 'canManageOpenings')) {
+  if (property_exists($filter, 'canManageOpenings')) {
     $ret = $ret . ' AND canManageOpenings = \'' . $filter->canManageOpenings . '\'';
   }
-  if(property_exists($filter, 'canManageUsers')) {
+  if (property_exists($filter, 'canManageUsers')) {
     $ret = $ret . ' AND canManageUsers = \'' . $filter->canManageUsers . '\'';
   }
 

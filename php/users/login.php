@@ -33,11 +33,11 @@ $user = new User($db);
 $stmt = $user->login($username);
 $num = $stmt->rowCount();
 
-if($num > 0) {
+if ($num > 0) {
   $row = $stmt->fetch(PDO::FETCH_ASSOC);
   $savedPassword = $row['password'];
 
-  if(password_verify($password, $savedPassword)) {
+  if (password_verify($password, $savedPassword)) {
     $issuer_claim = 'climbers-soul-caiarosio-backend';
     $audience_claim = 'climbers-soul-caiarosio';
     $issuedAt_claim = new DateTimeImmutable();

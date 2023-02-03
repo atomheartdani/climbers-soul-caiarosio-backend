@@ -33,7 +33,7 @@ try {
 
   $opening = new Opening($db);
 
-  if($id==0) {
+  if ($id == 0) {
     $opening->insert($date, $from, $to, $special, $maxReservations);
   } else {
     $opening->update($id, $date, $from, $to, $special, $maxReservations);

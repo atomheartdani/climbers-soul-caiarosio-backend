@@ -35,7 +35,7 @@ try {
   $spotsMax = getMaxNumberOfReservationsForOpening($opening, $openingId);
   $spotsReserved = getNumberOfReservationsForOpening($reservation, $openingId);
 
-  if($spotsMax >= $spotsReserved + 1 + $reservePartner ) {
+  if ($spotsMax >= $spotsReserved + 1 + $reservePartner) {
     $reservation->insert($openingId, $userId, $reservePartner);
     http_response_code(200);
   } else {
@@ -50,7 +50,7 @@ try {
 function getNumberOfReservationsForOpening($reservation, $openingId) {
   $stmt = $reservation->getNumberOfReservationsForOpening($openingId);
   $num = $stmt->rowCount();
-  
+
   if ($num >= 0) {
     $ret = $stmt->fetchColumn();
     return $ret;
@@ -62,7 +62,7 @@ function getNumberOfReservationsForOpening($reservation, $openingId) {
 function getMaxNumberOfReservationsForOpening($opening, $openingId) {
   $stmt = $opening->getById($openingId);
   $num = $stmt->rowCount();
-  
+
   if ($num > 0) {
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
     extract($row);
