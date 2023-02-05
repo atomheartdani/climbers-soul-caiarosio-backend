@@ -43,3 +43,7 @@ function checkAuthorization() {
     die;
   }
 }
+
+function createNewPassword($rawPassword) {
+  return password_hash($rawPassword, PASSWORD_BCRYPT, ['cost' => 15]);
+}

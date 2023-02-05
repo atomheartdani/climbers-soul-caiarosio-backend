@@ -38,10 +38,14 @@ try {
   $user = new User($db);
 
   if ($id == 0) {
-    $defaultPassword = password_hash($username, PASSWORD_BCRYPT, ['cost' => 15]);
+    $defaultPassword = createNewPassword($username);
     $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers);
   } else {
-    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $updatePassword, $canManageOpenings, $canManageUsers);
+    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers);
+    if($updatePassword == 1) {
+      $defaultPassword = createNewPassword($username);
+      $user->updatePassword($id, $defaultPassword, 1);
+    }
   }
   http_response_code(200);
 } catch (Exception $e) {

@@ -37,8 +37,8 @@ try {
     $savedPassword = $row['password'];
 
     if (password_verify($oldPassword, $savedPassword) && strlen($newPassword) >= 16) {
-      $newPasswordHash = password_hash($newPassword, PASSWORD_BCRYPT, ['cost' => 15]);
-      $user->updatePassword($row['id'], $newPasswordHash);
+      $newPasswordHash = createNewPassword($newPassword);
+      $user->updatePassword($row['id'], $newPasswordHash, 0);
       http_response_code(200);
     } else {
       updatePasswordFailed();

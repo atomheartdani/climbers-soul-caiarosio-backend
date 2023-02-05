@@ -71,8 +71,8 @@ class User {
 		$stmt->execute();
 	}
 
-	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $updatePassword, $canManageOpenings, $canManageUsers) {
-		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `updatePassword`=:updatePassword, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers WHERE `id`=:id';
+	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers) {
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -80,7 +80,6 @@ class User {
 		$stmt->bindParam(':email', $email);
 		$stmt->bindParam(':tosConsent', $tosConsent);
 		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
-		$stmt->bindParam(':updatePassword', $updatePassword);
 		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
 		$stmt->bindParam(':canManageUsers', $canManageUsers);
 		$stmt->bindParam(':id', $id);
@@ -102,11 +101,12 @@ class User {
 		return $stmt;
 	}
 
-	function updatePassword($id, $newPassword) {
-		$query = 'UPDATE ClimbersSoulUsers SET `password` = :password, `updatePassword` = 0 WHERE `id`=:id';
+	function updatePassword($id, $newPassword, $updatePassword) {
+		$query = 'UPDATE ClimbersSoulUsers SET `password` = :password, `updatePassword` = :updatePassword WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':id', $id);
 		$stmt->bindParam(':password', $newPassword);
+		$stmt->bindParam(':updatePassword', $updatePassword);
 		$stmt->execute();
 	}
 }
