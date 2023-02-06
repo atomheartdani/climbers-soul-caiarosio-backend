@@ -16,6 +16,7 @@ class User {
 	public $canManageOpenings;
 	public $canManageUsers;
 	public $deletedOn;
+	public $toVerify;
 
 	public function __construct($db) {
 		$this->conn = $db;
@@ -71,8 +72,8 @@ class User {
 		$stmt->execute();
 	}
 
-	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers) {
-		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers WHERE `id`=:id';
+	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers, $toVerify) {
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers, `toVerify`=:toVerify WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
@@ -82,6 +83,7 @@ class User {
 		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
 		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
 		$stmt->bindParam(':canManageUsers', $canManageUsers);
+		$stmt->bindParam(':toVerify', $toVerify);
 		$stmt->bindParam(':id', $id);
 		$stmt->execute();
 	}
@@ -94,7 +96,7 @@ class User {
 	}
 
 	function login($username) {
-		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE u.deletedOn IS NULL AND UPPER(u.username) = UPPER(:username) LIMIT 1';
+		$query = 'SELECT u.* FROM ClimbersSoulUsers u WHERE u.deletedOn IS NULL AND u.toVerify = 0 AND UPPER(u.username) = UPPER(:username) LIMIT 1';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->execute();

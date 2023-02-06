@@ -72,6 +72,9 @@ function filterToSql($filterJson) {
   if (property_exists($filter, 'canManageUsers')) {
     $ret = $ret . ' AND canManageUsers = \'' . $filter->canManageUsers . '\'';
   }
+  if (property_exists($filter, 'toVerify')) {
+    $ret = $ret . ' AND toVerify = \'' . $filter->toVerify . '\'';
+  }
 
   return $ret;
 }
