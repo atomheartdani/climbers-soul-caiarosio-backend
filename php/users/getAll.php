@@ -42,7 +42,8 @@ if ($num > 0) {
       'isCaiArosio' => boolval($isCaiArosio),
       'updatePassword' => boolval($updatePassword),
       'canManageOpenings' => boolval($canManageOpenings),
-      'canManageUsers' => boolval($canManageUsers)
+      'canManageUsers' => boolval($canManageUsers),
+      'isVerified' => boolval($isVerified)
     );
     array_push($users, $user_item);
   }
@@ -72,8 +73,8 @@ function filterToSql($filterJson) {
   if (property_exists($filter, 'canManageUsers')) {
     $ret = $ret . ' AND canManageUsers = \'' . $filter->canManageUsers . '\'';
   }
-  if (property_exists($filter, 'toVerify')) {
-    $ret = $ret . ' AND toVerify = \'' . $filter->toVerify . '\'';
+  if (property_exists($filter, 'isVerified')) {
+    $ret = $ret . ' AND isVerified = \'' . $filter->isVerified . '\'';
   }
 
   return $ret;

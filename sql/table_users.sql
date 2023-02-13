@@ -14,7 +14,7 @@ CREATE TABLE `ClimbersSoulUsers` (
   `canManageOpenings` tinyint(1) NOT NULL DEFAULT '0',
   `canManageUsers` tinyint(1) NOT NULL DEFAULT '0',
   `deletedOn` date DEFAULT NULL,
-  `toVerify` tinyint(1) NOT NULL DEFAULT '0'
+  `isVerified` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes

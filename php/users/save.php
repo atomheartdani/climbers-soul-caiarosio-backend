@@ -26,7 +26,7 @@ if (isset($postData) && !empty($postData)) {
   $updatePassword = intval($parsedData['updatePassword']);
   $canManageOpenings = intval($parsedData['canManageOpenings']);
   $canManageUsers = intval($parsedData['canManageUsers']);
-  $toVerify = intval($parsedData['toVerify']);
+  $isVerified = intval($parsedData['isVerified']);
 } else {
   http_response_code(400);
   die;
@@ -42,7 +42,7 @@ try {
     $defaultPassword = createNewPassword($username);
     $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers);
   } else {
-    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers, $toVerify);
+    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers, $isVerified);
     if($updatePassword == 1) {
       $defaultPassword = createNewPassword($username);
       $user->updatePassword($id, $defaultPassword, 1);
