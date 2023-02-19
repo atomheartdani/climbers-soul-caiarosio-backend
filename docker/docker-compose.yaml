@@ -15,7 +15,7 @@ services:
 
   database:
     container_name: database
-    image: mysql
+    image: mysql:8.0.32
     environment:
       MYSQL_ROOT_PASSWORD: password123
       MYSQL_DATABASE: Climbers_Soul_Caiarosio
@@ -26,7 +26,7 @@ services:
 
   phpmyadmin:
     container_name: phpmyadmin
-    image: phpmyadmin/phpmyadmin
+    image: phpmyadmin/phpmyadmin:5.2.1
     environment:
       PMA_HOST: database
     ports:
