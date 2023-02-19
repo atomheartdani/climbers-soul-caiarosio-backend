@@ -10,7 +10,6 @@ require '../config/database.php';
 require '../datamodel/user.php';
 
 managePreflight();
-checkAuthorization();
 
 $database = new Database();
 $db = $database->getConnection();
