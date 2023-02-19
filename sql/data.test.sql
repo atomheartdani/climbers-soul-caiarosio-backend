@@ -103,16 +103,16 @@ INSERT INTO `ClimbersSoulRules` (`id`, `order`, `content`, `parentId`) VALUES
 (25, 8, 'Nell’area con corda il “Praticante” che assicura deve posizionarsi alla base del muro e prestare la massima attenzione durante l’arrampicata del proprio compagno. Ai fini della sicurezza, sarebbe opportuno che chi assicura non abbia un peso eccessivamente inferiore a chi sta salendo', 17);
 
 
-INSERT INTO `ClimbersSoulUsers` (`id`, `username`, `firstname`, `lastname`, `email`, `tosConsent`, `isAdmin`, `updatePassword`, `password`) VALUES
-(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 0, 1, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(4, 'aragorn', 'Aragorn', '', 'aragorn@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6'),
-(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 0, 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6');
+INSERT INTO `ClimbersSoulUsers` (`id`, `username`, `firstname`, `lastname`, `email`, `caiSection`, `tosConsent`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`, `deletedOn`, `isVerified`) VALUES
+(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 1),
+(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$AlIpv2pcrlaz17hntKoc8uf75xCb./oWfy3cU9Rr8L.LlX8.ZgiRS', 1, 1, NULL, 1),
+(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 'Mariano', 0, 1, '$2y$15$Qj5wG18n0w0gz.s/iap4Au9rlSQbj0EzEjE4D5Al3yLBiSlmETy62', 0, 0, NULL, 1),
+(4, 'aragorn', 'Aragorn', 'Strider', 'aragorn@middleearth.org', 'Arosio', 1, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 0),
+(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1);
