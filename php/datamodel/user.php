@@ -9,8 +9,8 @@ class User {
 	public $firstname;
 	public $lastname;
 	public $email;
+	public $caiSection;
 	public $tosConsent;
-	public $isCaiArosio;
 	public $updatePassword;
 	public $password;
 	public $canManageOpenings;
@@ -57,30 +57,30 @@ class User {
 		return $stmt;
 	}
 
-	function insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers) {
-		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `tosConsent`, `isCaiArosio`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`) VALUES (:username, :firstname, :lastname, :email, :tosConsent, :isCaiArosio, 1, :defaultPassword, :canManageOpenings, :canManageUsers)';
+	function insert($username, $firstname, $lastname, $email, $caiSection, $tosConsent, $defaultPassword, $canManageOpenings, $canManageUsers) {
+		$query = 'INSERT INTO ClimbersSoulUsers(`username`, `firstname`, `lastname`, `email`, `caiSection`, `tosConsent`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`) VALUES (:username, :firstname, :lastname, :email, :caiSection, :tosConsent, 1, :defaultPassword, :canManageOpenings, :canManageUsers)';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':caiSection', $caiSection);
 		$stmt->bindParam(':tosConsent', $tosConsent);
-		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
 		$stmt->bindParam(':defaultPassword', $defaultPassword);
 		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
 		$stmt->bindParam(':canManageUsers', $canManageUsers);
 		$stmt->execute();
 	}
 
-	function update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers, $isVerified) {
-		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `tosConsent`=:tosConsent, `isCaiArosio`=:isCaiArosio, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers, `isVerified`=:isVerified WHERE `id`=:id';
+	function update($id, $username, $firstname, $lastname, $email, $caiSection, $tosConsent, $canManageOpenings, $canManageUsers, $isVerified) {
+		$query = 'UPDATE ClimbersSoulUsers SET `username`=:username, `firstname`=:firstname, `lastname`=:lastname, `email`=:email, `caiSection`=:caiSection, `tosConsent`=:tosConsent, `canManageOpenings`=:canManageOpenings, `canManageUsers`=:canManageUsers, `isVerified`=:isVerified WHERE `id`=:id';
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindParam(':username', $username);
 		$stmt->bindParam(':firstname', $firstname);
 		$stmt->bindParam(':lastname', $lastname);
 		$stmt->bindParam(':email', $email);
+		$stmt->bindParam(':caiSection', $caiSection);
 		$stmt->bindParam(':tosConsent', $tosConsent);
-		$stmt->bindParam(':isCaiArosio', $isCaiArosio);
 		$stmt->bindParam(':canManageOpenings', $canManageOpenings);
 		$stmt->bindParam(':canManageUsers', $canManageUsers);
 		$stmt->bindParam(':isVerified', $isVerified);

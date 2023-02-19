@@ -21,8 +21,8 @@ if (isset($postData) && !empty($postData)) {
   $firstname = $parsedData['firstname'];
   $lastname = $parsedData['lastname'];
   $email = $parsedData['email'];
+  $caiSection = $parsedData['caiSection'];
   $tosConsent = intval($parsedData['tosConsent']);
-  $isCaiArosio = intval($parsedData['isCaiArosio']);
   $updatePassword = intval($parsedData['updatePassword']);
   $canManageOpenings = intval($parsedData['canManageOpenings']);
   $canManageUsers = intval($parsedData['canManageUsers']);
@@ -40,9 +40,9 @@ try {
 
   if ($id == 0) {
     $defaultPassword = createNewPassword($username);
-    $user->insert($username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $defaultPassword, $canManageOpenings, $canManageUsers);
+    $user->insert($username, $firstname, $lastname, $email, $caiSection, $tosConsent, $defaultPassword, $canManageOpenings, $canManageUsers);
   } else {
-    $user->update($id, $username, $firstname, $lastname, $email, $tosConsent, $isCaiArosio, $canManageOpenings, $canManageUsers, $isVerified);
+    $user->update($id, $username, $firstname, $lastname, $email, $caiSection, $tosConsent, $canManageOpenings, $canManageUsers, $isVerified);
     if($updatePassword == 1) {
       $defaultPassword = createNewPassword($username);
       $user->updatePassword($id, $defaultPassword, 1);
