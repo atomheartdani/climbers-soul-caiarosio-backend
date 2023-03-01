@@ -8,16 +8,17 @@ php/      project source code
 sql/      database schema and test data
 ```
 
-## Database access
+## Database and email
 
-In order to establish a connection to the database you must create a `config.php` file starting from the `php/config/include/config.php_template` file provided
+In order to establish a connection to the database and to enable mail sending, you must create a `config.php` file starting from the `php/config/include/config.php_template` file provided
 
 ## Test environment
 
 For test and developement you can use the `docker/docker-compose.yaml` file to easily spin up:
-- An Apache HTTP server with PHP and MySQL PDO connector, listening on port 8000. The contents of the `php/` folder are automatically synced to this server
+- An Apache HTTP server with PHP, MySQL PDO connector and PHPMailer, listening on port 8000. The contents of the `php/` folder are automatically synced to this server
 - A MySQL database to store all your test data
 - A phpMyAdmin interface to easily manage the database, listening on port 8080
+- A Mailhog SMTP server for testing email notifications
 
 ## First run
 

@@ -7,6 +7,7 @@ header('Content-Type: application/json; charset=UTF-8');
 
 require '../config/authorization.php';
 require '../config/database.php';
+require '../config/mail.php';
 require '../datamodel/user.php';
 
 managePreflight();
@@ -42,10 +43,19 @@ try {
     $defaultPassword = createNewPassword($username);
     $user->create($username, $firstname, $lastname, $email, $caiSection, $tosConsent, $defaultPassword, $canManageOpenings, $canManageUsers, $isVerified);
   } else {
+    $wasUserVerified = $user->wasUserVerified($id);
     $user->update($id, $username, $firstname, $lastname, $email, $caiSection, $tosConsent, $canManageOpenings, $canManageUsers, $isVerified);
-    if($updatePassword == 1) {
+
+    // create default password when updatePassword field is flagged
+    if ($updatePassword == 1) {
       $defaultPassword = createNewPassword($username);
       $user->updatePassword($id, $defaultPassword, 1);
+    }
+
+    // send notification to user if isVerified field changes to true
+    if ($isVerified == 1 && $wasUserVerified == false) {
+      $mail = new Mail();
+      $mail->sendAccountVerified($email);
     }
   }
   http_response_code(200);

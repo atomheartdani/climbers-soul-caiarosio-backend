@@ -12,6 +12,7 @@ services:
       - 8000:80
     depends_on:
       - database
+      - mailserver
 
   database:
     container_name: database
@@ -23,6 +24,15 @@ services:
       MYSQL_PASSWORD: password123
     ports:
       - 9906:3306
+
+  mailserver:
+    container_name: mailserver
+    image: mailhog/mailhog:v1.0.1
+    logging:
+      driver: none
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
 
   phpmyadmin:
     container_name: phpmyadmin

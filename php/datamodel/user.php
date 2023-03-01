@@ -121,4 +121,20 @@ class User {
 		$stmt->bindParam(':updatePassword', $updatePassword);
 		$stmt->execute();
 	}
+
+	function wasUserVerified($id) {
+		$query = 'SELECT u.isVerified FROM ClimbersSoulUsers u WHERE u.id = :id';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+		$ret = $stmt->fetchColumn();
+		return boolval($ret);
+	}
+
+	function getUserAdminEmails() {
+		$query = 'SELECT u.email FROM ClimbersSoulUsers u WHERE u.canManageUsers = 1';
+		$stmt = $this->conn->prepare($query);
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+	}
 }

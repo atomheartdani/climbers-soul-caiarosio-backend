@@ -7,6 +7,7 @@ header('Content-Type: application/json; charset=UTF-8');
 
 require '../config/authorization.php';
 require '../config/database.php';
+require '../config/mail.php';
 require '../datamodel/user.php';
 
 managePreflight();
@@ -34,6 +35,10 @@ try {
 
   $securedPassword = createNewPassword($password);
   $user->register($username, $firstname, $lastname, $email, $caiSection, $securedPassword);
+
+  $toArray = $user->getUserAdminEmails();
+  $mail = new Mail();
+  $mail->sendAccountCreated($toArray, $firstname . ' ' . $lastname . ' - ' . $username);
 
   http_response_code(200);
 } catch (Exception $e) {

@@ -1,7 +1,18 @@
 <?php
 
+// Database
 $hn = 'database';
 $db = 'Climbers_Soul_Caiarosio';
 $un = 'user123';
 $pw = 'password123';
+
+// JWT Key
 $jwt_key = 'mysecretjwtkey';
+
+// Mail
+$mailServer = 'mailserver';
+$mailPort = 1025;
+$mailAuth = false;
+$mailName = 'Climber\'s Soul';
+$mailUsername = 'test@mydomain.com';
+$mailPassword = 'password123';
