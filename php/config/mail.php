@@ -42,6 +42,7 @@ class Mail {
 
     $mail = new PHPMailer(true);
     $mail->isSMTP();
+    $mail->CharSet = "UTF-8";
     $mail->Host = $mailServer;
     $mail->Port = $mailPort;
     $mail->SMTPAuth = $mailAuth;
