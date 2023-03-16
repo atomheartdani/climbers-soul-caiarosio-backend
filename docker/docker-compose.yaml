@@ -27,12 +27,10 @@ services:
 
   mailserver:
     container_name: mailserver
-    image: mailhog/mailhog:v1.0.1
-    logging:
-      driver: none
+    image: marlonb/mailcrab:v0.9.1
     ports:
       - 1025:1025 # smtp server
-      - 8025:8025 # web ui
+      - 1080:1080 # web ui
 
   phpmyadmin:
     container_name: phpmyadmin
