@@ -1,5 +1,7 @@
 # Climber's Soul CAI Arosio backend
 
+This is the backend code for [CAI Arosio](https://www.caiarosio.it/)'s climbing gym "[Climber's Soul](https://caiarosio.it/climberssoul/)"
+
 ## Project structure
 
 ```
