@@ -56,4 +56,11 @@ class Opening {
 		$stmt->bindParam(':maxReservations', $maxReservations);
 		$stmt->execute();
 	}
+
+	function delete($id) {
+		$query = 'DELETE FROM ClimbersSoulOpenings WHERE `id`=:id';
+		$stmt = $this->conn->prepare($query);
+		$stmt->bindParam(':id', $id);
+		$stmt->execute();
+	}
 }
