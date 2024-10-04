@@ -52,6 +52,21 @@ INSERT INTO `ClimbersSoulOpenings` (`id`, `date`, `from`, `to`, `special`, `maxR
 (51, '2023-03-30', '19:00', '21:00', NULL, 8);
 
 
+INSERT INTO `ClimbersSoulUsers` (`id`, `username`, `firstname`, `lastname`, `email`, `caiSection`, `tosConsent`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`, `deletedOn`, `isVerified`) VALUES
+(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 1),
+(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$AlIpv2pcrlaz17hntKoc8uf75xCb./oWfy3cU9Rr8L.LlX8.ZgiRS', 1, 1, NULL, 1),
+(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 'Mariano', 0, 1, '$2y$15$Qj5wG18n0w0gz.s/iap4Au9rlSQbj0EzEjE4D5Al3yLBiSlmETy62', 0, 0, NULL, 1),
+(4, 'aragorn', 'Aragorn', 'Strider', 'aragorn@middleearth.org', 'Arosio', 1, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 0),
+(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
+(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1);
+
+
 INSERT INTO `ClimbersSoulReservations` (`id`, `openingId`, `userId`, `reservePartner`) VALUES
 (1, 1, 1, 0),
 (2, 1, 2, 0),
@@ -102,17 +117,3 @@ INSERT INTO `ClimbersSoulRules` (`id`, `order`, `content`, `parentId`) VALUES
 (24, 7, 'La salita da capo cordata è possibile nei percorsi stabiliti impiegando la corda personale. E’ consentito il solo uso di corde intere dinamiche omologate di lunghezza uguale o superiore a 20 m (non sono ammesse mezze corde), legate direttamente all’imbragatura con nodo a otto o bulino infilato ed utilizzando tutti i rinvii intermedi per assicurarsi correttamente con la corda. L’assicurazione dell’arrampicatore deve essere effettuata con attrezzi di assicurazione autobloccanti omologati. Raggiunta la sommità dell’itinerario è obbligatorio far passare la corda in entrambi i moschettoni dell’ancoraggio finale', 17),
 (25, 8, 'Nell’area con corda il “Praticante” che assicura deve posizionarsi alla base del muro e prestare la massima attenzione durante l’arrampicata del proprio compagno. Ai fini della sicurezza, sarebbe opportuno che chi assicura non abbia un peso eccessivamente inferiore a chi sta salendo', 17);
 
-
-INSERT INTO `ClimbersSoulUsers` (`id`, `username`, `firstname`, `lastname`, `email`, `caiSection`, `tosConsent`, `updatePassword`, `password`, `canManageOpenings`, `canManageUsers`, `deletedOn`, `isVerified`) VALUES
-(1, 'bilbo.baggins', 'Bilbo', 'Baggins', 'bilbo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 1),
-(2, 'frodo.baggins', 'Frodo', 'Baggins', 'frodo.baggins@middleearth.org', 'Arosio', 0, 0, '$2y$15$AlIpv2pcrlaz17hntKoc8uf75xCb./oWfy3cU9Rr8L.LlX8.ZgiRS', 1, 1, NULL, 1),
-(3, 'merry.brandybuck', 'Merry', 'Brandybuck', 'merry.brandybuck@middleearth.org', 'Mariano', 0, 1, '$2y$15$Qj5wG18n0w0gz.s/iap4Au9rlSQbj0EzEjE4D5Al3yLBiSlmETy62', 0, 0, NULL, 1),
-(4, 'aragorn', 'Aragorn', 'Strider', 'aragorn@middleearth.org', 'Arosio', 1, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 1, 1, NULL, 0),
-(5, 'galadriel', 'Galadriel', '', 'galadriel@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(6, 'gandalf', 'Gandalf', '', 'gandalf@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(7, 'gimli', 'Gimli', '', 'gimli@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(8, 'legolas', 'Legolas', '', 'legolas@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(9, 'saruman', 'Saruman', '', 'saruman@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(10, 'sauron', 'Sauron', '', 'sauron@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(11, 'samwise.gamgee', 'Samwise', 'Gamgee', 'samwise.gamgee@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1),
-(12, 'pippin.took', 'Pippin', 'Took', 'pippin.took@middleearth.org', 'Arosio', 0, 0, '$2y$15$xqCWlrbLwjLdItODXETRHO1yz7v.AKrW0Y3ohr4lXS36.mJ/reYp6', 0, 0, NULL, 1);
