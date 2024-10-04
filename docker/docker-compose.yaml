@@ -20,6 +20,8 @@ services:
       MYSQL_DATABASE: Climbers_Soul_Caiarosio
       MYSQL_USER: user123
       MYSQL_PASSWORD: password123
+    volumes:
+      - ../sql/:/docker-entrypoint-initdb.d/:ro,z
     ports:
       - 9906:3306
 
