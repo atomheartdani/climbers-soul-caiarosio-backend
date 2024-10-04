@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   php-apache:
     container_name: php-apache
@@ -7,7 +5,7 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     volumes:
-      - ../php/:/var/www/html/php/
+      - ../php/:/var/www/html/php/:ro,z
     ports:
       - 8000:80
     depends_on:
@@ -16,7 +14,7 @@ services:
 
   database:
     container_name: database
-    image: mysql:8.0.32
+    image: mysql:8.0.39
     environment:
       MYSQL_ROOT_PASSWORD: password123
       MYSQL_DATABASE: Climbers_Soul_Caiarosio
@@ -27,7 +25,7 @@ services:
 
   mailserver:
     container_name: mailserver
-    image: marlonb/mailcrab:v0.9.1
+    image: marlonb/mailcrab:v1.3.0
     ports:
       - 1025:1025 # smtp server
       - 1080:1080 # web ui
