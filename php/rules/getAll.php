@@ -23,8 +23,8 @@ if ($num > 0) {
     $rule_item = array(
       'id' => $id,
       'order' => $order,
-      'content' => $content,
-      'parentId' => $parentId
+      'parentOrder' => $parentOrder,
+      'content' => $content
     );
     array_push($ret, $rule_item);
   }

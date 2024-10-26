@@ -4,8 +4,8 @@ DROP TABLE IF EXISTS `ClimbersSoulRules`;
 CREATE TABLE `ClimbersSoulRules` (
   `id` int NOT NULL,
   `order` int NOT NULL,
-  `content` text COLLATE utf8mb4_general_ci NOT NULL,
-  `parentId` int DEFAULT NULL
+  `parentOrder` int DEFAULT NULL,
+  `content` text COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Add indexes
