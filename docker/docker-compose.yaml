@@ -5,7 +5,7 @@ services:
       context: ./
       dockerfile: ./Dockerfile
     volumes:
-      - ../php/:/var/www/html/php/:ro,z
+      - ../php/:/var/www/html/php/:z
     ports:
       - 8000:80
     depends_on:
