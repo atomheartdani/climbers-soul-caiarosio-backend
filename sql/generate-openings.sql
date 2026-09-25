@@ -9,6 +9,6 @@ WITH recursive openings AS (
           WHERE opening < CONCAT(year(curdate()) + 1, '-04-30')) -- April 30th of next year
   SELECT 'INSERT INTO `ClimbersSoulOpenings` (`date`, `from`, `to`, `special`, `maxReservations`) VALUES'
   UNION
-  SELECT CONCAT('(', opening, ', `19:15`, `21:00`, NULL, 8),')
+  SELECT CONCAT('(''', opening, ''', ''19:15'', ''21:00'', NULL, 8),')
     FROM openings
-   WHERE weekday(opening) IN (1, 3)
+   WHERE weekday(opening) IN (1, 3) -- Tuesday and Thursday
